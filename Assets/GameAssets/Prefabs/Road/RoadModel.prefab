@@ -71,9 +71,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4951454365040038891}
   - component: {fileID: 4951454365040038890}
+  - component: {fileID: 5628983887254456133}
   m_Layer: 6
   m_Name: RoadModel
-  m_TagString: Untagged
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,21 @@ MonoBehaviour:
   IsActiveInHierarchy: 0
   Id: 0
   EndPoint: {fileID: 4951454364233580900}
+  roadRenderer: {fileID: 5358546862884019834}
+  TargetColor: {r: 1, g: 0, b: 0, a: 0}
+--- !u!65 &5628983887254456133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951454365040038888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0927286, y: 0.8035428, z: 0.38958925}
+  m_Center: {x: 0, y: 0.0036337674, z: 0.48078176}
 --- !u!1001 &6745535013319525118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,5 +193,10 @@ PrefabInstance:
 --- !u!4 &6491460745189106965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5edeec1d73a10f46b31c46faf43306a, type: 3}
+  m_PrefabInstance: {fileID: 6745535013319525118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5358546862884019834 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: f5edeec1d73a10f46b31c46faf43306a, type: 3}
   m_PrefabInstance: {fileID: 6745535013319525118}
   m_PrefabAsset: {fileID: 0}

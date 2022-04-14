@@ -14,7 +14,7 @@ public class UpgradeController : ControllerBaseModel
     {
         base.Initialize();
 
-        YearUpgrade.Initialize(PlayerDataModel.Data.YearLevel);
+        //YearUpgrade.Initialize(PlayerDataModel.Data.YearLevel);
         EarningUpgrade.Initialize(PlayerDataModel.Data.EarningLevel);
 
         mainScreen.UpdatePrices(YearUpgrade.Price, EarningUpgrade.Price);

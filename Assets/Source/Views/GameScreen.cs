@@ -7,6 +7,7 @@ public class GameScreen : ScreenElement
 {
     [SerializeField] Text txtLevel,txtMoney;
     [SerializeField] Animator moneyAnim;
+    [SerializeField] Slider healthBar;
 
     public override void Initialize()
     {
@@ -18,6 +19,7 @@ public class GameScreen : ScreenElement
     public override void Show()
     {
         txtMoney.text = PlayerDataModel.Data.Money.ToCoinValues() + "$";
+        healthBar.value = PlayerDataModel.Data.HealthLevel;
         base.Show();
     }
 

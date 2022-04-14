@@ -105,7 +105,7 @@ public class LevelController : ControllerBaseModel
         }
         roads = roads.OrderBy(x => x.transform.position.z).ToArray();
 
-        levelData.RoadDatas = new WorldItemDataModel[roads.Length];
+        levelData.RoadDatas = new RoadDataModel[roads.Length];
         for (int i = 0; i < roads.Length; i++)
         {
             levelData.RoadDatas[i] = roads[i].GetDataModel();

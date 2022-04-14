@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoadController : ControllerBaseModel
 {
     [SerializeField] MultiplePoolModel RoadPools;
+    [SerializeField] MultiplePoolModel enemyPools;
 
     public void OnLevelCompleted()
     {
@@ -14,12 +15,15 @@ public class RoadController : ControllerBaseModel
     {
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
-            WorldItemDataModel roadData = level.RoadDatas[i];
-
-            RoadModel roadModel = RoadPools.Pools[roadData.Id].GetDeactiveItem() as RoadModel;
-            roadModel.transform.position = roadData.Position;
-            roadModel.transform.rotation = roadData.Rotation;
-            roadModel.SetActive();
+            List<EnemyModel> enemies = new List<EnemyModel>();
+            for (int j = 0; j < level.RoadDatas[i].EnemyDatas.Length; j++)
+            {
+                EnemyDataModel enemyData = level.RoadDatas[i].EnemyDatas[j];
+                EnemyModel enemy = enemyPools.Pools[enemyData.Id].GetDeactiveItem() as EnemyModel;
+                enemies.Add(enemy);
+                (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).SetEnemy(enemy, enemyData);
+            }
+            (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).Initialize(level.RoadDatas[i], enemies);
         }
     }
 
@@ -37,14 +41,14 @@ public class RoadController : ControllerBaseModel
 
     public void E_LoadLevel(Level level)
     {
-        for (int i = 0; i < level.RoadDatas.Length; i++)
-        {
-            WorldItemDataModel roadData = level.RoadDatas[i];
+        //for (int i = 0; i < level.RoadDatas.Length; i++)
+        //{
+        //    WorldItemDataModel roadData = level.RoadDatas[i];
 
-            RoadModel roadModel = RoadPools.Pools[roadData.Id].Items.Find(x => x.gameObject.activeInHierarchy == false) as RoadModel;
-            roadModel.transform.position = roadData.Position;
-            roadModel.transform.rotation = roadData.Rotation;
-            roadModel.gameObject.SetActive(true);
-        }
+        //    RoadModel roadModel = RoadPools.Pools[roadData.Id].Items.Find(x => x.gameObject.activeInHierarchy == false) as RoadModel;
+        //    roadModel.transform.position = roadData.Position;
+        //    roadModel.transform.rotation = roadData.Rotation;
+        //    roadModel.gameObject.SetActive(true);
+        //}
     }
 }

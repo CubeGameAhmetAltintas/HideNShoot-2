@@ -21,7 +21,7 @@ public class YearUpgrade : UpgradeModel
 
         UpdatePrice();
         Level++;
-        PlayerDataModel.Data.YearLevel = Level;
+        //PlayerDataModel.Data.YearLevel = Level;
         PlayerDataModel.Data.Save();
     }
 }

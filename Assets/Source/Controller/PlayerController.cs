@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class PlayerController : ControllerBaseModel
@@ -10,6 +11,15 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] UpgradeController upgradeController;
     [SerializeField] ParticleSystem upgradeFx;
     int pointIndex;
+
+    public int Health;
+    public int MaxHealth => Health * PlayerDataModel.Data.HealthLevel;
+    private RoadModel currentRoad;
+    private RoadModel lastRoad;
+    [SerializeField] MeshRenderer characterColor;
+    //public Color CurrentColor => characterColor.material.color;
+    public Color CurrentColor;
+
     PathModel activePath
     {
         get
@@ -28,8 +38,6 @@ public class PlayerController : ControllerBaseModel
         upgradeFx.Play();
     }
 
-
-
     public void OnStartGame()
     {
 
@@ -38,8 +46,43 @@ public class PlayerController : ControllerBaseModel
     public override void ControllerUpdate()
     {
         base.ControllerUpdate();
+        movementUpdate();
+
+        // if current road not null
+        // Road model RoadUpdate();
+
+        //if(currentRoad != null)
+        //    currentRoad.RoadUpdate();
+
     }
 
+    public void OnEnterRoad(RoadModel road)
+    {
+        if (road != lastRoad && lastRoad)
+            lastRoad.OnPlayerExit();
+
+        lastRoad = road;
+        // yeni road a girdiði zaman eski current road a OnPlayerExit() de
+        //current color
+        // road ýn update olacak
+        
+    }
+
+    public void OnColorChange(Color color)
+    {
+        CurrentColor = color;
+        // color set
+        currentRoad.OnPlayerColorChange(CurrentColor);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Road")
+        {
+            currentRoad = other.gameObject.GetComponent<RoadModel>();
+            OnEnterRoad(currentRoad);
+        }
+    }
 
     private void movementUpdate()
     {
