@@ -12,7 +12,6 @@ public class RoadModel : ObjectModel
     public Color TargetColor;
     private List<EnemyModel> spawnedEnemies;
     private PlayerController player;
-    bool isPlayerEntered;
 
     public void Initialize(RoadDataModel data, List<EnemyModel> enemies)
     {
@@ -34,7 +33,6 @@ public class RoadModel : ObjectModel
 
     public void OnPlayerEnter()
     {
-        // if player!s road == enemy's road
         if (spawnedEnemies == null) return;
         foreach (var enemy in spawnedEnemies)
         {
@@ -45,7 +43,7 @@ public class RoadModel : ObjectModel
     public void OnPlayerExit()
     {
         print(this + " stop player is not in this road!!!!");
-        // change enemy state to idle
+
         foreach (var enemy in spawnedEnemies)
             enemy.ChangeState(EnemyStates.Idle);
 
@@ -53,8 +51,6 @@ public class RoadModel : ObjectModel
 
     public void RoadUpdate()
     {
-        // enemy update
-        // player çaðýracak
         if (spawnedEnemies == null) return;
         foreach (var enemy in spawnedEnemies)
             enemy.EnemyUpdate();

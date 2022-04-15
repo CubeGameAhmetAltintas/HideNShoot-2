@@ -48,12 +48,8 @@ public class PlayerController : ControllerBaseModel
         base.ControllerUpdate();
         movementUpdate();
 
-        // if current road not null
-        // Road model RoadUpdate();
-
-        //if(currentRoad != null)
-        //    currentRoad.RoadUpdate();
-
+        if (currentRoad != null)
+            currentRoad.RoadUpdate();
     }
 
     public void OnEnterRoad(RoadModel road)
@@ -62,17 +58,15 @@ public class PlayerController : ControllerBaseModel
             lastRoad.OnPlayerExit();
 
         lastRoad = road;
-        // yeni road a girdiði zaman eski current road a OnPlayerExit() de
         //current color
         // road ýn update olacak
-        
+        OnColorChange(CurrentColor);
     }
 
     public void OnColorChange(Color color)
     {
-        CurrentColor = color;
         // color set
-        currentRoad.OnPlayerColorChange(CurrentColor);
+        currentRoad.OnPlayerColorChange(color);
     }
 
     private void OnTriggerEnter(Collider other)
