@@ -13,6 +13,7 @@ public class LevelController : ControllerBaseModel
     public PathModel ActivePath;
     [SerializeField] RoadController roadController;
     [SerializeField] EnvironmentController environmentController;
+    [SerializeField] PlayerController playerController;
     [SerializeField] Tool.Mesh.MeshModel roadMesh;
     Level loadedLevel;
 
@@ -40,6 +41,7 @@ public class LevelController : ControllerBaseModel
         loadedLevel = Levels[PlayerDataModel.Data.LevelIndex];
         ActivePath = loadedLevel.Path;
         roadController.LoadLevel(loadedLevel);
+        playerController.Init(loadedLevel); //??
         environmentController.LoadVisaulEnvironment();
     }
 

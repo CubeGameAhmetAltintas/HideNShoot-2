@@ -18,7 +18,9 @@ public class PlayerController : ControllerBaseModel
     private RoadModel lastRoad;
     [SerializeField] MeshRenderer characterColor;
     //public Color CurrentColor => characterColor.material.color;
-    public Color CurrentColor;
+    
+    [SerializeField] PlayerColorBar colorBar;
+    public Color CurrentColor => colorBar.CurrentColor;
 
     PathModel activePath
     {
@@ -31,6 +33,14 @@ public class PlayerController : ControllerBaseModel
     public override void Initialize()
     {
         base.Initialize();
+    }
+
+    public void Init(Level level)
+    {
+        for (int i = 0; i < level.RoadDatas.Length; i++)
+        {
+            colorBar.Initialize(level.RoadDatas[i].TargetColor);
+        }
     }
 
     public void OnUpgrade(int upgradeId)
@@ -60,13 +70,15 @@ public class PlayerController : ControllerBaseModel
         lastRoad = road;
         //current color
         // road ýn update olacak
-        OnColorChange(CurrentColor);
+        //OnColorChange(CurrentColor);
     }
 
     public void OnColorChange(Color color)
     {
         // color set
+        if (color == null) return;
         currentRoad.OnPlayerColorChange(color);
+        characterColor.material.color = color;
     }
 
     private void OnTriggerEnter(Collider other)
