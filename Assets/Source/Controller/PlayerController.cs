@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : ControllerBaseModel
@@ -18,9 +19,9 @@ public class PlayerController : ControllerBaseModel
     private RoadModel lastRoad;
     [SerializeField] MeshRenderer characterColor;
     //public Color CurrentColor => characterColor.material.color;
-    
+
     [SerializeField] PlayerColorBar colorBar;
-    public Color CurrentColor => colorBar.CurrentColor;
+    public Color CurrentColor;
 
     PathModel activePath
     {
@@ -30,17 +31,23 @@ public class PlayerController : ControllerBaseModel
         }
     }
 
-    public override void Initialize()
+    public void Initialize(Level level)
     {
         base.Initialize();
-    }
-
-    public void Init(Level level)
-    {
+        List<Color> colors = new List<Color>();
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
-            colorBar.Initialize(level.RoadDatas[i].TargetColor);
+            //TODO Check again
+            bool isExists = false;
+            for (int j = 0; j < colors.Count; j++)
+            {
+                if (level.RoadDatas[i].TargetColor.Equals(colors[j]))
+                    isExists = true;
+            }
+            if (!isExists)
+                colors.Add(level.RoadDatas[i].TargetColor);
         }
+        colorBar.Initialize(colors);
     }
 
     public void OnUpgrade(int upgradeId)
@@ -70,15 +77,16 @@ public class PlayerController : ControllerBaseModel
         lastRoad = road;
         //current color
         // road ýn update olacak
-        //OnColorChange(CurrentColor);
+        OnColorChange(CurrentColor);
     }
 
     public void OnColorChange(Color color)
     {
         // color set
         if (color == null) return;
-        currentRoad.OnPlayerColorChange(color);
-        characterColor.material.color = color;
+        CurrentColor = color;
+        currentRoad.OnPlayerColorChange(CurrentColor);
+        characterColor.material.color = CurrentColor;
     }
 
     private void OnTriggerEnter(Collider other)

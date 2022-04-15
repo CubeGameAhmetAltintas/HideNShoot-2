@@ -41,7 +41,7 @@ public class LevelController : ControllerBaseModel
         loadedLevel = Levels[PlayerDataModel.Data.LevelIndex];
         ActivePath = loadedLevel.Path;
         roadController.LoadLevel(loadedLevel);
-        playerController.Init(loadedLevel); //??
+        playerController.Initialize(loadedLevel);
         environmentController.LoadVisaulEnvironment();
     }
 

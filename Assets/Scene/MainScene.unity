@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51025295}
   - component: {fileID: 51025296}
+  - component: {fileID: 51025297}
   m_Layer: 5
   m_Name: PayerColorBarView
   m_TagString: Untagged
@@ -417,6 +418,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51025294}
   m_CullTransparentMesh: 1
+--- !u!114 &51025297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51025294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba971b448040684e89edda3b693837d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentColor: {r: 1, g: 1, b: 1, a: 1}
+  player: {fileID: 1324406934}
+  colorSlider: {fileID: 1535972025}
 --- !u!1001 &56295005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,7 +976,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4502,7 +4518,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6277,7 +6293,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6858,7 +6874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179217044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7764,7 +7780,6 @@ GameObject:
   - component: {fileID: 1324406935}
   - component: {fileID: 1324406934}
   - component: {fileID: 1324406936}
-  - component: {fileID: 1324406937}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -7793,7 +7808,8 @@ MonoBehaviour:
   upgradeFx: {fileID: 0}
   Health: 0
   characterColor: {fileID: 1145796014}
-  colorBar: {fileID: 1324406937}
+  colorBar: {fileID: 51025297}
+  CurrentColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1324406935
 Transform:
   m_ObjectHideFlags: 0
@@ -7825,21 +7841,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1324406937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324406933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba971b448040684e89edda3b693837d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentColor: {r: 0, g: 0, b: 0, a: 0}
-  player: {fileID: 1324406934}
-  colorSlider: {fileID: 1535972025}
 --- !u!4 &1328713980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3149813041723008556, guid: 8ffd56e13c6427c4caac6a6c598056cc, type: 3}
@@ -8721,7 +8722,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1324406937}
+      - m_Target: {fileID: 51025297}
         m_TargetAssemblyTypeName: PlayerColorBar, Assembly-CSharp
         m_MethodName: OnValueChange
         m_Mode: 1
@@ -8905,7 +8906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.998947}
+  m_AnchoredPosition: {x: 0, y: -49.9989}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590569475
@@ -10329,7 +10330,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -11,22 +11,20 @@ public class PlayerColorBar : MonoBehaviour
     [SerializeField] PlayerController player;
     private List<Color> roadColors = new List<Color>();
     [SerializeField] Slider colorSlider;
-    int colorIndex = 0;
 
-    public void Initialize(Color color)
+    public void Initialize(List<Color> colors)
     {
-        roadColors.Add(color);
+        roadColors = colors;
     }
 
     public void OnValueChange()
     {
         sliderValue = 1f / roadColors.Count;
-        foreach (var item in roadColors)
+        for (int i = 0; i < roadColors.Count; i++)
         {
-            colorIndex = roadColors.IndexOf(item);
-            if (sliderValue * colorIndex < colorSlider.value && colorSlider.value < sliderValue * colorIndex + 1)
+            if (sliderValue * i < colorSlider.value && colorSlider.value < sliderValue * i + 1)
             {
-                CurrentColor = roadColors[colorIndex];
+                CurrentColor = roadColors[i];
             }
         }
 
