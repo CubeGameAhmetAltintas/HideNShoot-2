@@ -18,7 +18,6 @@ public class PlayerController : ControllerBaseModel
     private RoadModel currentRoad;
     private RoadModel lastRoad;
     [SerializeField] MeshRenderer characterColor;
-    //public Color CurrentColor => characterColor.material.color;
 
     [SerializeField] PlayerColorBar colorBar;
     public Color CurrentColor;
@@ -37,14 +36,7 @@ public class PlayerController : ControllerBaseModel
         List<Color> colors = new List<Color>();
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
-            //TODO Check again
-            bool isExists = false;
-            for (int j = 0; j < colors.Count; j++)
-            {
-                if (level.RoadDatas[i].TargetColor.Equals(colors[j]))
-                    isExists = true;
-            }
-            if (!isExists)
+            if(!colors.Contains(level.RoadDatas[i].TargetColor))
                 colors.Add(level.RoadDatas[i].TargetColor);
         }
         colorBar.Initialize(colors);
