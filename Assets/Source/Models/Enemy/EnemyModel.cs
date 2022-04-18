@@ -1,30 +1,50 @@
-﻿public class EnemyModel : ObjectModel
+﻿using System.Collections;
+using UnityEngine;
+
+public class EnemyModel : ObjectModel
 {
     public int Id;
     public int Damage;
     private EnemyStates state;
-    private PoolModel bulletPool;
+    [SerializeField] PoolModel bulletPool; //TODO ???
+    [SerializeField] PlayerController player; //TODO ???
+    
+    float timer = 0;
+    [SerializeField] float fireRate;
 
     public void ShootPlayer(PlayerController player)
     {
-
+        if (player.Health <= 0)
+        {
+            ChangeState(EnemyStates.Idle);
+            return;
+        }
+        BulletModel bullet = (bulletPool.GetDeactiveItem() as BulletModel);
+        bullet.transform.position = transform.position;
+        bullet.Shoot(transform.position, player.transform.position, 5f);
     }
 
     private void idleUpdate()
     {
-        print(this + " Idleeee");
     }
-
+    
     private void aimUpdate()
     {
-        print(this + " shooooot");
+        if(timer <= fireRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            ShootPlayer(player);
+            timer = 0;
+        }
     }
 
     public void EnemyUpdate()
     {
         ChangeState(state);
     }
-    //enemyUpdate - road model
 
     public void ChangeState(EnemyStates enemyState)
     {

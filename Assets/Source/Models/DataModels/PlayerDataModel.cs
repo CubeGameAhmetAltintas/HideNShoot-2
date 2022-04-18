@@ -10,7 +10,7 @@ public class PlayerDataModel : DataModel
     public static PlayerDataModel Data;
     public int Level = 1;
     public int LevelIndex;
-    public int HealthLevel = 1;
+    public int HealthLevel = 0;
     public int Money = 100;
     public int EnvironmentId;
     //public int YearLevel = 0;

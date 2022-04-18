@@ -33,16 +33,12 @@ public class RoadModel : ObjectModel
 
     public void OnPlayerEnter()
     {
-        if (spawnedEnemies == null) return;
-        foreach (var enemy in spawnedEnemies)
-        {
-            enemy.transform.LookAt(player.transform);
-        }
+       
     }
 
     public void OnPlayerExit()
     {
-        print(this + " stop player is not in this road!!!!");
+        //print(this + " stop player is not in this road!!!!");
 
         foreach (var enemy in spawnedEnemies)
             enemy.ChangeState(EnemyStates.Idle);
@@ -54,7 +50,6 @@ public class RoadModel : ObjectModel
         if (spawnedEnemies == null) return;
         foreach (var enemy in spawnedEnemies)
             enemy.EnemyUpdate();
-
     }
 
     public void OnPlayerColorChange(Color currentColor)

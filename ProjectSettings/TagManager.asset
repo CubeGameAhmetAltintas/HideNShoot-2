@@ -8,12 +8,9 @@ TagManager:
   - Door
   - Collectable
   - Obstacle
-  - Paint
-  - EnvironmentEffect
-  - AccessoryDoor
   - Money
-  - BeautySaloon
   - Road
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UpgradeController : ControllerBaseModel
 {
-    public YearUpgrade YearUpgrade;
+    public HealthUpgrade HealthUpgrade;
     public EarningUpgrade EarningUpgrade;
     [SerializeField] MainScreen mainScreen;
     [SerializeField] PlayerController playerController;
@@ -14,21 +14,20 @@ public class UpgradeController : ControllerBaseModel
     {
         base.Initialize();
 
-        //YearUpgrade.Initialize(PlayerDataModel.Data.YearLevel);
+        HealthUpgrade.Initialize(PlayerDataModel.Data.HealthLevel);
         EarningUpgrade.Initialize(PlayerDataModel.Data.EarningLevel);
 
-        mainScreen.UpdatePrices(YearUpgrade.Price, EarningUpgrade.Price);
+        mainScreen.UpdatePrices(HealthUpgrade.Price, EarningUpgrade.Price);
     }
 
-    public void UpgradeYear()
+    public void UpgradeHealth()
     {
-        if (PlayerDataModel.Data.Money >= YearUpgrade.Price)
+        if (PlayerDataModel.Data.Money >= HealthUpgrade.Price)
         {
-            GameController.Controller.UpdatePlayerCoin(-YearUpgrade.Price);
-            //PlayerDataModel.Data.Money -= YearUpgrade.Price;
+            GameController.Controller.UpdatePlayerCoin(-HealthUpgrade.Price);
             PlayerDataModel.Data.Save();
-            YearUpgrade.Upgrade();
-            mainScreen.UpdatePrices(YearUpgrade.Price, EarningUpgrade.Price);
+            HealthUpgrade.Upgrade();
+            mainScreen.UpdatePrices(HealthUpgrade.Price, EarningUpgrade.Price);
             playerController.OnUpgrade(0);
         }
     }
@@ -41,7 +40,7 @@ public class UpgradeController : ControllerBaseModel
             //PlayerDataModel.Data.Money -= EarningUpgrade.Price;
             PlayerDataModel.Data.Save();
             EarningUpgrade.Upgrade();
-            mainScreen.UpdatePrices(YearUpgrade.Price, EarningUpgrade.Price);
+            mainScreen.UpdatePrices(HealthUpgrade.Price, EarningUpgrade.Price);
             playerController.OnUpgrade(1);
         }
     }

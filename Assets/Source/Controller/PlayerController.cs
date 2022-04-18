@@ -13,14 +13,14 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] ParticleSystem upgradeFx;
     int pointIndex;
 
-    public int Health;
-    public int MaxHealth => Health * PlayerDataModel.Data.HealthLevel;
-    private RoadModel currentRoad;
-    private RoadModel lastRoad;
+    public int Health = 50;
+    public int MaxHealth;
+    //public int MaxHealth;
+    private RoadModel currentRoad, lastRoad;
     [SerializeField] MeshRenderer characterColor;
-
     [SerializeField] PlayerColorBar colorBar;
     public Color CurrentColor;
+    [SerializeField] HealthBar healthBar;
 
     PathModel activePath
     {
@@ -33,10 +33,13 @@ public class PlayerController : ControllerBaseModel
     public void Initialize(Level level)
     {
         base.Initialize();
+        MaxHealth = upgradeController.HealthUpgrade.CurrentHealth;
+        Health = MaxHealth;
+
         List<Color> colors = new List<Color>();
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
-            if(!colors.Contains(level.RoadDatas[i].TargetColor))
+            if (!colors.Contains(level.RoadDatas[i].TargetColor))
                 colors.Add(level.RoadDatas[i].TargetColor);
         }
         colorBar.Initialize(colors);
@@ -44,6 +47,11 @@ public class PlayerController : ControllerBaseModel
 
     public void OnUpgrade(int upgradeId)
     {
+        if(upgradeId == 0)
+        {
+            MaxHealth = upgradeController.HealthUpgrade.CurrentHealth;
+            Health = MaxHealth;
+        }
         upgradeFx.Play();
     }
 
@@ -55,7 +63,8 @@ public class PlayerController : ControllerBaseModel
     public override void ControllerUpdate()
     {
         base.ControllerUpdate();
-        movementUpdate();
+        if(Health > 0)
+            movementUpdate();
 
         if (currentRoad != null)
             currentRoad.RoadUpdate();
@@ -63,31 +72,54 @@ public class PlayerController : ControllerBaseModel
 
     public void OnEnterRoad(RoadModel road)
     {
+        currentRoad = road;
         if (road != lastRoad && lastRoad)
             lastRoad.OnPlayerExit();
 
         lastRoad = road;
-        //current color
-        // road ýn update olacak
+
         OnColorChange(CurrentColor);
     }
 
     public void OnColorChange(Color color)
     {
-        // color set
         if (color == null) return;
         CurrentColor = color;
         currentRoad.OnPlayerColorChange(CurrentColor);
         characterColor.material.color = CurrentColor;
     }
 
+    public void OnBulletHit(BulletModel bullet)
+    {
+        bullet.OnHitTarget();
+        GetDamage(bullet.Damage);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Road")
         {
-            currentRoad = other.gameObject.GetComponent<RoadModel>();
-            OnEnterRoad(currentRoad);
+            OnEnterRoad(other.gameObject.GetComponent<RoadModel>());
         }
+
+        if (other.tag == "Bullet")
+        {
+            OnBulletHit(other.GetComponent<BulletModel>());
+        }
+        // Switch case tag control
+    }
+
+    public void GetDamage(int damage)
+    {
+        Health -= damage;
+        healthBar.HealthUpdate();
+        if(Health <= 0)
+            die();
+    }
+
+    private void die()
+    {
+        character.SetDeactive();
     }
 
     private void movementUpdate()

@@ -29,30 +29,30 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: 0, y: 0, z: 0}
+      Position: {x: 1, y: 0, z: 4}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
     - Id: 0
-      Position: {x: 0, y: 0, z: 2}
+      Position: {x: -1, y: 0, z: 2}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 0.7241435, g: 1, b: 0, a: 1}
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: 0, y: 0, z: 24}
+      Position: {x: 1, y: 0, z: 24}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
     - Id: 0
-      Position: {x: 0, y: 0, z: 30}
+      Position: {x: 1, y: 0, z: 30}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 0, g: 0.88220024, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: 0, y: 0, z: 0}
+      Position: {x: -1, y: 0, z: 50}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
     - Id: 0
-      Position: {x: 0, y: 0, z: 2}
+      Position: {x: -1, y: 0, z: 52}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 1, g: 1, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 60}

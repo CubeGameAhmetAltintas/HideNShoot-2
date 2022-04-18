@@ -144,6 +144,9 @@ MonoBehaviour:
   IsActiveInHierarchy: 0
   Id: 0
   Damage: 0
+  bulletPool: {fileID: 0}
+  player: {fileID: 0}
+  fireRate: 1
 --- !u!1 &6381609335164103641
 GameObject:
   m_ObjectHideFlags: 0
