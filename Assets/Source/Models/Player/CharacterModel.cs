@@ -7,4 +7,13 @@ public class CharacterModel : ObjectModel
     [SerializeField] ParticleSystem upgradeFx;
     [SerializeField] Animator animator;
 
+    public void StartMove()
+    {
+        animator.SetBool("isMoving", true);
+    }
+
+    public void StopMoving()
+    {
+        animator.SetBool("isMoving", false);
+    }
 }

@@ -8,9 +8,11 @@ public class EnemyModel : ObjectModel
     private EnemyStates state;
     [SerializeField] PoolModel bulletPool; //TODO ???
     [SerializeField] PlayerController player; //TODO ???
-    
     float timer = 0;
     [SerializeField] float fireRate;
+    [SerializeField] Animator animator;
+    [SerializeField] Transform firePoint;
+    [SerializeField] ParticleSystem shootFx;
 
     public void ShootPlayer(PlayerController player)
     {
@@ -20,8 +22,8 @@ public class EnemyModel : ObjectModel
             return;
         }
         BulletModel bullet = (bulletPool.GetDeactiveItem() as BulletModel);
-        bullet.transform.position = transform.position;
-        bullet.Shoot(transform.position, player.transform.position, 5f);
+        bullet.transform.position = firePoint.position;
+        bullet.Shoot(firePoint.position, new Vector3(player.transform.position.x, 1f, player.transform.position.z), 5f);
     }
 
     private void idleUpdate()
@@ -30,13 +32,16 @@ public class EnemyModel : ObjectModel
     
     private void aimUpdate()
     {
+        transform.LookAt(player.transform);
         if(timer <= fireRate)
         {
             timer += Time.deltaTime;
         }
         else
         {
+            animator.SetTrigger("Fire");
             ShootPlayer(player);
+            shootFx.Play();
             timer = 0;
         }
     }

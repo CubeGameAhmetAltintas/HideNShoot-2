@@ -33,13 +33,10 @@ public class RoadModel : ObjectModel
 
     public void OnPlayerEnter()
     {
-       
     }
 
     public void OnPlayerExit()
     {
-        //print(this + " stop player is not in this road!!!!");
-
         foreach (var enemy in spawnedEnemies)
             enemy.ChangeState(EnemyStates.Idle);
 

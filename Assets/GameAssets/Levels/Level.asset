@@ -29,35 +29,44 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: 1, y: 0, z: 4}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: -2, y: 0, z: 8}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
     - Id: 0
-      Position: {x: -1, y: 0, z: 2}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: 2, y: 0, z: 7}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: -3, y: 0, z: 6}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   - TargetColor: {r: 0.7241435, g: 1, b: 0, a: 1}
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: 1, y: 0, z: 24}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: 2, y: 0, z: 22}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
     - Id: 0
-      Position: {x: 1, y: 0, z: 30}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: 2, y: 0, z: 32}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: -4, y: 0, z: 32}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   - TargetColor: {r: 0, g: 0.88220024, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 0
-      Position: {x: -1, y: 0, z: 50}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: -2, y: 0, z: 50}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
     - Id: 0
-      Position: {x: -1, y: 0, z: 52}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Position: {x: -2, y: 0, z: 52}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   - TargetColor: {r: 1, g: 1, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
+    EnemyDatas:
+    - Id: 1
+      Position: {x: 4, y: 0, z: 64}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
   - TargetColor: {r: 0.7994525, g: 0.6084906, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 80}
     Rotation: {x: 0, y: 0, z: 0, w: 0}

@@ -10,14 +10,13 @@ public class PlayerController : ControllerBaseModel
     public CharacterModel character;
     [SerializeField] Transform characterParent;
     [SerializeField] UpgradeController upgradeController;
-    [SerializeField] ParticleSystem upgradeFx;
+    [SerializeField] ParticleSystem upgradeFx, dieFx, colorDustFX;
     int pointIndex;
 
     public int Health = 50;
     public int MaxHealth;
-    //public int MaxHealth;
     private RoadModel currentRoad, lastRoad;
-    [SerializeField] MeshRenderer characterColor;
+    [SerializeField] SkinnedMeshRenderer characterColor; // ??
     [SerializeField] PlayerColorBar colorBar;
     public Color CurrentColor;
     [SerializeField] HealthBar healthBar;
@@ -57,7 +56,7 @@ public class PlayerController : ControllerBaseModel
 
     public void OnStartGame()
     {
-
+        character.StartMove();
     }
 
     public override void ControllerUpdate()
@@ -81,9 +80,16 @@ public class PlayerController : ControllerBaseModel
         OnColorChange(CurrentColor);
     }
 
+    Color lastColor;
     public void OnColorChange(Color color)
     {
         if (color == null) return;
+        if(color != lastColor && lastColor != null)
+        {
+            colorDustFX.startColor = new Color(color.r, color.g, color.b, 1f);
+            colorDustFX.Play();
+        }
+        lastColor = color;
         CurrentColor = color;
         currentRoad.OnPlayerColorChange(CurrentColor);
         characterColor.material.color = CurrentColor;
@@ -97,16 +103,15 @@ public class PlayerController : ControllerBaseModel
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Road")
+        switch (other.tag)
         {
-            OnEnterRoad(other.gameObject.GetComponent<RoadModel>());
+            case "Road":
+                OnEnterRoad(other.gameObject.GetComponent<RoadModel>());
+                break;
+            case "Bullet":
+                OnBulletHit(other.GetComponent<BulletModel>());
+                break;
         }
-
-        if (other.tag == "Bullet")
-        {
-            OnBulletHit(other.GetComponent<BulletModel>());
-        }
-        // Switch case tag control
     }
 
     public void GetDamage(int damage)
@@ -120,6 +125,8 @@ public class PlayerController : ControllerBaseModel
     private void die()
     {
         character.SetDeactive();
+        dieFx.transform.SetParent(null);
+        dieFx.Play();
     }
 
     private void movementUpdate()
@@ -130,6 +137,7 @@ public class PlayerController : ControllerBaseModel
     private void onLevelComplete()
     {
         GameStateHandler.StateHandler.ChangeState(GameStates.End);
+        character.StopMoving();
     }
 
 }

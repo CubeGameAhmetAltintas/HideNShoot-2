@@ -11,7 +11,6 @@ public class PlayerColorBar : MonoBehaviour
     [SerializeField] PlayerController player;
     private List<Color> roadColors = new List<Color>();
     [SerializeField] Slider colorSlider;
-
     public void Initialize(List<Color> colors)
     {
         roadColors = colors;
