@@ -79,7 +79,7 @@ public class PlayerController : ControllerBaseModel
             lastRoad.OnPlayerExit();
 
         lastRoad = road;
-
+        road.OnPlayerEnter(this);
         if(GameplayTypeController.CurrentType == GameplayTypes.Running)
             OnColorChange(CurrentColor);
     }

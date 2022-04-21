@@ -31,8 +31,9 @@ public class RoadModel : ObjectModel
         enemy.SetActive();
     }
 
-    public void OnPlayerEnter()
+    public void OnPlayerEnter(PlayerController playerController)
     {
+        player = playerController;
     }
 
     public void OnPlayerExit()
