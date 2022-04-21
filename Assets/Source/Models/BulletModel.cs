@@ -17,7 +17,7 @@ public class BulletModel : ObjectModel
     {
         if (IsActiveInHierarchy)
         {
-            movementUpdate(); //TODO call it elsewhere ??
+            movementUpdate();
             if (timer <= 2f)
             {
                 timer += Time.deltaTime;

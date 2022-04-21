@@ -13,14 +13,14 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] ParticleSystem upgradeFx, dieFx, colorDustFX;
     int pointIndex;
 
-    public int Health = 50;
+    public int Health = 100;
     public int MaxHealth;
     private RoadModel currentRoad, lastRoad;
     [SerializeField] SkinnedMeshRenderer characterColor; // ??
     [SerializeField] PlayerColorBar colorBar;
     public Color CurrentColor;
     [SerializeField] HealthBar healthBar;
-
+    [SerializeField] WeaponModel weaponModel;
     PathModel activePath
     {
         get
@@ -62,8 +62,11 @@ public class PlayerController : ControllerBaseModel
     public override void ControllerUpdate()
     {
         base.ControllerUpdate();
-        if(Health > 0)
-            movementUpdate();
+
+        OnGameplayTypeChange(GameplayTypeController.CurrentType);
+
+        //if(Health > 0)
+        //    movementUpdate();
 
         if (currentRoad != null)
             currentRoad.RoadUpdate();
@@ -77,7 +80,8 @@ public class PlayerController : ControllerBaseModel
 
         lastRoad = road;
 
-        OnColorChange(CurrentColor);
+        if(GameplayTypeController.CurrentType == GameplayTypes.Running)
+            OnColorChange(CurrentColor);
     }
 
     Color lastColor;
@@ -86,10 +90,11 @@ public class PlayerController : ControllerBaseModel
         if (color == null) return;
         if(color != lastColor && lastColor != null)
         {
-            colorDustFX.startColor = new Color(color.r, color.g, color.b, 1f);
+            colorDustFX.startColor = color;
             colorDustFX.Play();
         }
         lastColor = color;
+
         CurrentColor = color;
         currentRoad.OnPlayerColorChange(CurrentColor);
         characterColor.material.color = CurrentColor;
@@ -129,9 +134,34 @@ public class PlayerController : ControllerBaseModel
         dieFx.Play();
     }
 
+    public void OnGameplayTypeChange(GameplayTypes type)
+    {
+        switch (type)
+        {
+            case GameplayTypes.Running:
+                if (Health > 0)
+                    movementUpdate();
+                break;
+            case GameplayTypes.Sniper:
+                sniperUpdate();
+                break;
+        }
+    }
+
+    private void sniperUpdate()
+    {
+        weaponModel.WeaponUpdate();
+    }
+
     private void movementUpdate()
     {
-        pointIndex = activePath.MoveObjectToPath(pointIndex, transform, forwardSpeed, rotationSpeed, onLevelComplete);
+        pointIndex = activePath.MoveObjectToPath(pointIndex, transform, forwardSpeed, rotationSpeed, onRunningStateComplete);
+    }
+
+    private void onRunningStateComplete()
+    {
+        GameplayTypeController.GameplayType.ChangeGameplay(GameplayTypes.Sniper);
+        character.StopMoving();
     }
 
     private void onLevelComplete()

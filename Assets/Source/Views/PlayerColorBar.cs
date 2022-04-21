@@ -27,6 +27,7 @@ public class PlayerColorBar : MonoBehaviour
             }
         }
 
-        player.OnColorChange(CurrentColor);
+        if(GameplayTypeController.CurrentType == GameplayTypes.Running)
+            player.OnColorChange(CurrentColor);
     }
 }
