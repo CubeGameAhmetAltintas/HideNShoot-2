@@ -19,5 +19,6 @@ public class ControllerBaseModel : ObjectModel
     private void Reset()
     {
         transform.name = GetType().Name;
+        transform.ResetLocal();
     }
 }
