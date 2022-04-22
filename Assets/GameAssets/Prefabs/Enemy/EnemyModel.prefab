@@ -115,6 +115,7 @@ MonoBehaviour:
   animator: {fileID: 713732887551147523}
   firePoint: {fileID: 181638932714719546}
   shootFx: {fileID: 1180107746888087973}
+  isWalking: 1
 --- !u!1001 &683899147018362968
 PrefabInstance:
   m_ObjectHideFlags: 0

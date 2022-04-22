@@ -16,6 +16,7 @@ public class EnemyModel : ObjectModel
     [SerializeField] ParticleSystem shootFx;
     Vector3 walkPoint;
     Vector3 initialPoit;
+    public bool isWalking;
 
     public void ShootPlayer(PlayerController player)
     {
@@ -53,8 +54,8 @@ public class EnemyModel : ObjectModel
 
     private void Update()
     {
-        if (state != EnemyStates.Shoot)
-            idleUpdate(); //??
+        if (state != EnemyStates.Shoot && isWalking)
+            idleUpdate(); //TODO might change
     }
 
     private void aimUpdate()
