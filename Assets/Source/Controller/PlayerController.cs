@@ -65,9 +65,6 @@ public class PlayerController : ControllerBaseModel
 
         OnGameplayTypeChange(GameplayTypeController.CurrentType);
 
-        //if(Health > 0)
-        //    movementUpdate();
-
         if (currentRoad != null)
             currentRoad.RoadUpdate();
     }

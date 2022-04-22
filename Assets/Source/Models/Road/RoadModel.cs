@@ -28,12 +28,16 @@ public class RoadModel : ObjectModel
     {
         enemy.transform.position = enemyData.Position;
         enemy.transform.rotation = enemyData.Rotation;
+        enemy.ChangeState(EnemyStates.Idle);
+        enemy.EnemyIdlePoint();
         enemy.SetActive();
     }
 
     public void OnPlayerEnter(PlayerController playerController)
     {
         player = playerController;
+        foreach (var enemy in spawnedEnemies)
+            enemy.ShootPlayer(player);
     }
 
     public void OnPlayerExit()
