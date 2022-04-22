@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnvironmentController : ControllerBaseModel
 {
     public VisualEnvironmentModel[] VisualEnvironments;
+    public EnvironmentModel[] Environments;
     [SerializeField] Material bgMaterial;
 
 

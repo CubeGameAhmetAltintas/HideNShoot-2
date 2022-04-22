@@ -6,5 +6,6 @@ public class Level : ScriptableObject
 {
     public PathModel Path;
     public RoadDataModel[] RoadDatas;
+    public WorldItemDataModel[] EnviromentDatas;
 }
 

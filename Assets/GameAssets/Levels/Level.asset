@@ -75,3 +75,13 @@ MonoBehaviour:
     Position: {x: 0, y: 0, z: 100}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+  EnviromentDatas:
+  - Id: 0
+    Position: {x: -3, y: 0, z: 8}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - Id: 0
+    Position: {x: 3.54, y: 0, z: 17}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - Id: 0
+    Position: {x: -4.769, y: 0, z: 14.2}
+    Rotation: {x: 0, y: -0.31606302, z: 0, w: 0.9487382}
