@@ -126,9 +126,10 @@ public class PlayerController : ControllerBaseModel
 
     private void die()
     {
-        character.SetDeactive();
-        dieFx.transform.SetParent(null);
-        dieFx.Play();
+        character.Dying();
+        //character.SetDeactive();
+        //dieFx.transform.SetParent(null);
+        //dieFx.Play();
     }
 
     public void OnGameplayTypeChange(GameplayTypes type)

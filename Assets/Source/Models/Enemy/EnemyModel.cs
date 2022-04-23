@@ -56,6 +56,8 @@ public class EnemyModel : ObjectModel
     {
         if (state != EnemyStates.Shoot && isWalking)
             idleUpdate(); //TODO might change
+        else
+            animator.SetBool("isFiring", true);
     }
 
     private void aimUpdate()

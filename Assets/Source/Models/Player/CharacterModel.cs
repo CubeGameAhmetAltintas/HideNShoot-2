@@ -16,4 +16,9 @@ public class CharacterModel : ObjectModel
     {
         animator.SetBool("isMoving", false);
     }
+
+    public void Dying()
+    {
+        animator.SetTrigger("isKilled");
+    }
 }
