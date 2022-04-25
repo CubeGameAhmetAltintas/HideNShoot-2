@@ -65,7 +65,7 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
     - Id: 1
-      Position: {x: 4, y: 0, z: 64}
+      Position: {x: 4, y: 0, z: 62}
       Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
   - TargetColor: {r: 0.7994525, g: 0.6084906, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 80}

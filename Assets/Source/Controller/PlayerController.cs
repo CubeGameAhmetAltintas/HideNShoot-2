@@ -84,7 +84,7 @@ public class PlayerController : ControllerBaseModel
     Color lastColor;
     public void OnColorChange(Color color)
     {
-        if (color == null) return;
+        if (color == null || Health == 0) return;
         if(color != lastColor && lastColor != null)
         {
             colorDustFX.startColor = color;

@@ -66,7 +66,6 @@ public class EnemyModel : ObjectModel
 
     private void aimUpdate()
     {
-        animator.SetBool("isFiring", true);
         transform.LookAt(player.transform);
         if (timer <= fireRate)
         {
@@ -74,7 +73,7 @@ public class EnemyModel : ObjectModel
         }
         else
         {
-            animator.SetBool("isFiring", true);
+            animator.SetTrigger("Fire");
             ShootPlayer(player);
             shootFx.Play();
             timer = 0;
