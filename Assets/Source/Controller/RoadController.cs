@@ -47,6 +47,16 @@ public class RoadController : ControllerBaseModel
 
     public void E_LoadLevel(Level level)
     {
+        for (int i = 0; i < level.EnviromentDatas.Length; i++)
+        {
+            WorldItemDataModel roadData = level.EnviromentDatas[i];
+
+            EnvironmentModel roadModel = environmentPools.Pools[0].Items.Find(x => x.gameObject.activeInHierarchy == false) as EnvironmentModel;
+            roadModel.transform.position = roadData.Position;
+            roadModel.transform.rotation = roadData.Rotation;
+            roadModel.gameObject.SetActive(true);
+        }
+
         //for (int i = 0; i < level.RoadDatas.Length; i++)
         //{
         //    WorldItemDataModel roadData = level.RoadDatas[i];
