@@ -32,16 +32,20 @@ public class EnemyModel : ObjectModel
     }
     public void EnemyIdlePoint()
     {
-        var randomPointX = Random.Range(-1f, 1f);
-        var randomPointZ = Random.Range(-0.9f, 0.1f);
+        var randomPointX = Random.Range(-0.5f, 1f);
+        var randomPointZ = Random.Range(0.5f, 2f);
         initialPoit = transform.position;
         walkPoint = initialPoit + new Vector3(randomPointX, 0, randomPointZ);
     }
 
     private void idleUpdate()
     {
-        transform.LookAt(walkPoint);
-        transform.position = Vector3.MoveTowards(transform.position, walkPoint, 1f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(
+        transform.rotation,
+        Quaternion.LookRotation(walkPoint - transform.position),
+        Time.deltaTime * 180f);
+
+        transform.position = Vector3.MoveTowards(transform.position, walkPoint, 0.4f * Time.deltaTime);
         if (transform.position == walkPoint)
         {
             walkPoint = initialPoit;
