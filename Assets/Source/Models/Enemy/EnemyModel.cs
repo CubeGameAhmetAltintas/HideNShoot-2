@@ -45,7 +45,7 @@ public class EnemyModel : ObjectModel
         Quaternion.LookRotation(walkPoint - transform.position),
         Time.deltaTime * 180f);
 
-        transform.position = Vector3.MoveTowards(transform.position, walkPoint, 0.4f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, walkPoint, 0.5f * Time.deltaTime);
         if (transform.position == walkPoint)
         {
             walkPoint = initialPoit;
