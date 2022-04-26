@@ -33,6 +33,14 @@ public class RoadModel : ObjectModel
         enemy.SetActive();
     }
 
+    public void SetEnvironment(EnvironmentModel environment, WorldItemDataModel enironmentData, RoadDataModel data)
+    {
+        environment.transform.position = enironmentData.Position;
+        environment.transform.rotation = enironmentData.Rotation;
+        environment.GetComponentInChildren<MeshRenderer>().material.color = data.TargetColor;
+        environment.SetActive();
+    }
+
     public void OnPlayerEnter(PlayerController playerController)
     {
         player = playerController;

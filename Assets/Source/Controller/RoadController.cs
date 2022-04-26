@@ -24,12 +24,15 @@ public class RoadController : ControllerBaseModel
                 enemies.Add(enemy);
                 (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).SetEnemy(enemy, enemyData);
             }
-            (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).Initialize(level.RoadDatas[i], enemies);
-        }
 
-        for (int i = 0; i < level.EnviromentDatas.Length; i++)
-        {
-            (environmentPools.Pools[0].GetDeactiveItem() as EnvironmentModel).Initialize(level.EnviromentDatas[i]);
+            for (int j = 0; j < level.RoadDatas[i].EnvironmentDatas.Length; j++)
+            {
+                WorldItemDataModel environmentData = level.RoadDatas[i].EnvironmentDatas[j];
+                EnvironmentModel environment = environmentPools.Pools[environmentData.Id].GetDeactiveItem() as EnvironmentModel;
+                (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).SetEnvironment(environment, environmentData, level.RoadDatas[i]);
+            }
+
+            (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).Initialize(level.RoadDatas[i], enemies);
         }
     }
 
@@ -47,16 +50,6 @@ public class RoadController : ControllerBaseModel
 
     public void E_LoadLevel(Level level)
     {
-        for (int i = 0; i < level.EnviromentDatas.Length; i++)
-        {
-            WorldItemDataModel roadData = level.EnviromentDatas[i];
-
-            EnvironmentModel roadModel = environmentPools.Pools[0].Items.Find(x => x.gameObject.activeInHierarchy == false) as EnvironmentModel;
-            roadModel.transform.position = roadData.Position;
-            roadModel.transform.rotation = roadData.Rotation;
-            roadModel.gameObject.SetActive(true);
-        }
-
         //for (int i = 0; i < level.RoadDatas.Length; i++)
         //{
         //    WorldItemDataModel roadData = level.RoadDatas[i];

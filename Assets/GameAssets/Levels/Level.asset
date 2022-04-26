@@ -37,6 +37,16 @@ MonoBehaviour:
     - Id: 1
       Position: {x: -4, y: 0, z: 6}
       Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -3, y: 0, z: 8}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3.54, y: 0, z: 17}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4.769, y: 0, z: 14.2}
+      Rotation: {x: 0, y: -0.31606302, z: 0, w: 0.9487382}
   - TargetColor: {r: 0.7241435, g: 1, b: 0, a: 1}
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
@@ -50,6 +60,16 @@ MonoBehaviour:
     - Id: 1
       Position: {x: -4, y: 0, z: 28}
       Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -2.68, y: 0, z: 25.74}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 32.91}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 38.79}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 0, g: 0.88220024, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
@@ -60,6 +80,19 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -3, y: 0, z: 54}
       Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -4.07, y: 0, z: 43.29}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4.07, y: 0, z: 48.715}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 4.36, y: 0, z: 47.91}
+      Rotation: {x: 0, y: 0.62353855, z: 0, w: 0.78179264}
+    - Id: 0
+      Position: {x: -3.08, y: 0, z: 57.92}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
   - TargetColor: {r: 1, g: 1, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
@@ -67,88 +100,46 @@ MonoBehaviour:
     - Id: 1
       Position: {x: 4, y: 0, z: 62}
       Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3.99, y: 0, z: 66.31}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 0.7994525, g: 0.6084906, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 80}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3.27, y: 0, z: 81.61}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4.07, y: 0, z: 82.85}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3.308, y: 0, z: 95.16}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
   - TargetColor: {r: 1, g: 0.50571597, b: 0.48584908, a: 1}
     Position: {x: 0, y: 0, z: 100}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+    EnvironmentDatas: []
   - TargetColor: {r: 1, g: 0.5724195, b: 0.24056602, a: 1}
     Position: {x: 0, y: 0, z: 120}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+    EnvironmentDatas: []
   - TargetColor: {r: 0.48627448, g: 0.6553764, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 140}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+    EnvironmentDatas: []
   - TargetColor: {r: 0, g: 0.6698113, b: 0.40972617, a: 1}
     Position: {x: 0, y: 0, z: 160}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
+    EnvironmentDatas: []
   - TargetColor: {r: 1, g: 0.5724195, b: 0.24056602, a: 1}
     Position: {x: 0, y: 0, z: 180}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
-  EnviromentDatas:
-  - Id: 0
-    Position: {x: -3, y: 0, z: 8}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - Id: 0
-    Position: {x: 3.54, y: 0, z: 17}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - Id: 0
-    Position: {x: -4.769, y: 0, z: 14.2}
-    Rotation: {x: 0, y: -0.31606302, z: 0, w: 0.9487382}
-  - Id: 0
-    Position: {x: -2.68, y: 0, z: 25.74}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3, y: 0, z: 32.91}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3, y: 0, z: 38.79}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -4.07, y: 0, z: 43.29}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -4.07, y: 0, z: 48.715}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 4.36, y: 0, z: 47.91}
-    Rotation: {x: 0, y: 0.62353855, z: 0, w: 0.78179264}
-  - Id: 0
-    Position: {x: -3.08, y: 0, z: 57.92}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3.99, y: 0, z: 66.31}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3.27, y: 0, z: 81.61}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -4.07, y: 0, z: 82.85}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3.308, y: 0, z: 95.16}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -5.09, y: 0, z: 106.24}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3.66, y: 0, z: 115.91}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -4.15, y: 0, z: 135.8}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: 3.18, y: 0, z: 156.11}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -4.07, y: 0, z: 168.94}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - Id: 0
-    Position: {x: -3, y: 0, z: 178.74}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    EnvironmentDatas: []

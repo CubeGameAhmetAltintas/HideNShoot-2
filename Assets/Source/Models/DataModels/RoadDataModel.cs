@@ -9,4 +9,5 @@ public class RoadDataModel
     public Vector3 Position;
     public Quaternion Rotation;
     public EnemyDataModel[] EnemyDatas;
+    public WorldItemDataModel[] EnvironmentDatas;
 }
