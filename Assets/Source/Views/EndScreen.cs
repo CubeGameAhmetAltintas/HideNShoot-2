@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class EndScreen : ScreenElement
 {
-    public WinScreen WinScreen;
+    [SerializeField] WinScreen winScreen;
+    [SerializeField] LoseScreen loseScreen;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        WinScreen.Initialize();
+        winScreen.Initialize();
+        loseScreen.Initialize();
     }
 
     public override void Show()
     {
         base.Show();
 
-        WinScreen.Show();
+        if (GameController.IsPlayerWin)
+        {
+            winScreen.Show();
+        }
+        else
+        {
+            loseScreen.Show();
+        }
     }
 
     public void NextLevel()
     {
-       
+
     }
 
     public void Retry()

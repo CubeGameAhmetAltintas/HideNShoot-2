@@ -52,4 +52,5 @@ public class InspectorHelper : MonoBehaviour
             renderers[i].material = material;
         }
     }
+
 }

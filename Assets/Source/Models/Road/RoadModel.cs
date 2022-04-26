@@ -68,7 +68,7 @@ public class RoadModel : ObjectModel
     {
         foreach (var enemy in spawnedEnemies)
         {
-            if (currentColor == TargetColor)
+            if (Helpers.Colors.IsColorInRange(GameController.EnemyDetectSensitve, currentColor, TargetColor))
                 enemy.ChangeState(EnemyStates.Idle);
             else
                 enemy.ChangeState(EnemyStates.Shoot);
@@ -78,7 +78,7 @@ public class RoadModel : ObjectModel
     public RoadDataModel GetDataModel()
     {
         RoadDataModel dataModel = new RoadDataModel();
-    
+
         dataModel.Position = transform.position;
         dataModel.Rotation = transform.rotation;
 

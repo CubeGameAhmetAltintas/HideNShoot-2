@@ -399,6 +399,12 @@
 
     public static class Maths
     {
+        public static float GetValueWithPercent(float aValue,float bValue, float percent)
+        {
+            float diff = bValue - aValue;
+            return aValue + (diff * percent);
+        }
+
         public static bool IsValueInRange(float value, float min, float max)
         {
             if (value >= min && value <= max)
@@ -877,6 +883,16 @@
 
     public static class Colors
     {
+        public static Color GetColorWithPercent(Color a, Color b, float percent)
+        {
+            return new Color(Maths.GetValueWithPercent(a.r,b.r, percent), Maths.GetValueWithPercent(a.g, b.g, percent), Maths.GetValueWithPercent(a.b, b.b, percent));
+        }
+
+        public static bool IsEqual(Color a, Color b)
+        {
+            return a.r == b.r && a.g == b.g && a.b == b.b;
+        }
+
         public static Color InvertColor(Color color)
         {
             return new Color(1.0f - color.r, 1.0f - color.g, 1.0f - color.b);
@@ -906,6 +922,12 @@
 
             return alphaColor;
         }
+
+        public static bool IsColorInRange(float sensitve, Color color, Color targetColor)
+        {
+            return Maths.IsValueInRange(color.r, targetColor.r - sensitve, targetColor.r + sensitve) && Maths.IsValueInRange(color.g, targetColor.g - sensitve, targetColor.g + sensitve) && Maths.IsValueInRange(color.b, targetColor.b - sensitve, targetColor.b + sensitve);
+        }
+
     }
 
     public static class Editors

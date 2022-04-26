@@ -8,11 +8,9 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] float forwardSpeed;
     [SerializeField] float rotationSpeed;
     public CharacterModel character;
-    [SerializeField] Transform characterParent;
     [SerializeField] UpgradeController upgradeController;
-    [SerializeField] ParticleSystem upgradeFx, dieFx, colorDustFX;
+    [SerializeField] ParticleSystem upgradeFx;
     int pointIndex;
-
     public int Health = 100;
     public int MaxHealth;
     private RoadModel currentRoad, lastRoad;
@@ -38,15 +36,30 @@ public class PlayerController : ControllerBaseModel
         List<Color> colors = new List<Color>();
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
-            if (!colors.Contains(level.RoadDatas[i].TargetColor))
+            bool isExist = false;
+            if (colors.Count != 0)
+            {
+                for (int j = 0; j < colors.Count; j++)
+                {
+                    if (Helpers.Colors.IsEqual(colors[j], level.RoadDatas[i].TargetColor))
+                    {
+                        isExist = true;
+                    }
+                }
+            }
+
+            if (isExist == false)
+            {
                 colors.Add(level.RoadDatas[i].TargetColor);
+            }
         }
         colorBar.Initialize(colors);
+
     }
 
     public void OnUpgrade(int upgradeId)
     {
-        if(upgradeId == 0)
+        if (upgradeId == 0)
         {
             MaxHealth = upgradeController.HealthUpgrade.CurrentHealth;
             Health = MaxHealth;
@@ -77,23 +90,17 @@ public class PlayerController : ControllerBaseModel
 
         lastRoad = road;
         road.OnPlayerEnter(this);
-        if(GameplayTypeController.CurrentType == GameplayTypes.Running)
+        if (GameplayTypeController.CurrentType == GameplayTypes.Running)
             OnColorChange(CurrentColor);
     }
 
-    Color lastColor;
     public void OnColorChange(Color color)
     {
         if (color == null || Health == 0) return;
-        if(color != lastColor && lastColor != null)
-        {
-            colorDustFX.startColor = color;
-            colorDustFX.Play();
-        }
-        lastColor = color;
 
         CurrentColor = color;
-        currentRoad.OnPlayerColorChange(CurrentColor);
+        if (currentRoad != null)
+            currentRoad.OnPlayerColorChange(CurrentColor);
         characterColor.material.color = CurrentColor;
     }
 
@@ -120,16 +127,15 @@ public class PlayerController : ControllerBaseModel
     {
         Health -= damage;
         healthBar.HealthUpdate();
-        if(Health <= 0)
+        if (Health <= 0)
             die();
     }
 
     private void die()
     {
         character.Dying();
-        //character.SetDeactive();
-        //dieFx.transform.SetParent(null);
-        //dieFx.Play();
+        GameController.IsPlayerWin = false;
+        GameStateHandler.StateHandler.ChangeState(GameStates.End);
     }
 
     public void OnGameplayTypeChange(GameplayTypes type)

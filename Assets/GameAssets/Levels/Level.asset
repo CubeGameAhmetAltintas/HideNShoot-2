@@ -24,7 +24,7 @@ MonoBehaviour:
     E_ControlPos: {x: 0, y: 0, z: 0}
     E_ControlPos1: {x: 0, y: 0, z: 0}
   RoadDatas:
-  - TargetColor: {r: 0, g: 0.88220024, b: 1, a: 1}
+  - TargetColor: {r: 0, g: 0.8, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
@@ -47,7 +47,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -4.769, y: 0, z: 14.2}
       Rotation: {x: 0, y: -0.31606302, z: 0, w: 0.9487382}
-  - TargetColor: {r: 0.7241435, g: 1, b: 0, a: 1}
+  - TargetColor: {r: 0, g: 0.8, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
@@ -70,7 +70,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3, y: 0, z: 38.79}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - TargetColor: {r: 0, g: 0.88220024, b: 1, a: 1}
+  - TargetColor: {r: 0, g: 1, b: 0.02, a: 1}
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
@@ -93,7 +93,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -3.08, y: 0, z: 57.92}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - TargetColor: {r: 1, g: 1, b: 1, a: 1}
+  - TargetColor: {r: 0, g: 1, b: 0.02, a: 1}
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
@@ -104,7 +104,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3.99, y: 0, z: 66.31}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - TargetColor: {r: 0.7994525, g: 0.6084906, b: 1, a: 1}
+  - TargetColor: {r: 0.8, g: 0.6, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 80}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
@@ -118,27 +118,27 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3.308, y: 0, z: 95.16}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - TargetColor: {r: 1, g: 0.50571597, b: 0.48584908, a: 1}
+  - TargetColor: {r: 0.8, g: 0.6, b: 1, a: 1}
     Position: {x: 0, y: 0, z: 100}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
     EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5724195, b: 0.24056602, a: 1}
+  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
     Position: {x: 0, y: 0, z: 120}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
     EnvironmentDatas: []
-  - TargetColor: {r: 0.48627448, g: 0.6553764, b: 1, a: 1}
+  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
     Position: {x: 0, y: 0, z: 140}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
     EnvironmentDatas: []
-  - TargetColor: {r: 0, g: 0.6698113, b: 0.40972617, a: 1}
+  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
     Position: {x: 0, y: 0, z: 160}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []
     EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5724195, b: 0.24056602, a: 1}
+  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
     Position: {x: 0, y: 0, z: 180}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas: []

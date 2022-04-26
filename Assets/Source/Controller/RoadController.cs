@@ -7,6 +7,7 @@ public class RoadController : ControllerBaseModel
     [SerializeField] MultiplePoolModel RoadPools;
     [SerializeField] MultiplePoolModel enemyPools;
     [SerializeField] MultiplePoolModel environmentPools;
+    [SerializeField] FinishRoad finishRoad;
 
     public void OnLevelCompleted()
     {
@@ -34,6 +35,8 @@ public class RoadController : ControllerBaseModel
 
             (RoadPools.Pools[0].GetDeactiveItem() as RoadModel).Initialize(level.RoadDatas[i], enemies);
         }
+
+        finishRoad.SetPosition(level.RoadDatas.GetLastItem().Position);
     }
 
     public void E_SetRoad(int roadCount)

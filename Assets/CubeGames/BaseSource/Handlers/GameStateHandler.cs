@@ -89,6 +89,7 @@ public class GameStateHandler : HandlerBaseModel
         }
 
         roadController.OnLevelCompleted();
+        ScreenManager.Manager.ChangeScreen(true, 3);
     }
 
     public void LoadingStateUpdate()
