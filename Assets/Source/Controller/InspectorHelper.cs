@@ -42,4 +42,14 @@ public class InspectorHelper : MonoBehaviour
             transform.GetChild(i).localPosition = new Vector3(i * diff, 0, 0);
         }
     }
+
+    [EditorButton]
+    public void SetMaterial(Material material)
+    {
+        Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = material;
+        }
+    }
 }

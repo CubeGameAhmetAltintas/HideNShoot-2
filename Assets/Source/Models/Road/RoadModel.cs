@@ -37,7 +37,9 @@ public class RoadModel : ObjectModel
     {
         environment.transform.position = enironmentData.Position;
         environment.transform.rotation = enironmentData.Rotation;
-        environment.GetComponentInChildren<MeshRenderer>().material.color = data.TargetColor;
+        Component[] meshRenderers = environment.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer item in meshRenderers)
+            item.material.color = data.TargetColor;
         environment.SetActive();
     }
 
