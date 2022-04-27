@@ -9,7 +9,6 @@ public class BulletModel : ObjectModel
     public Vector3 Direction;
     public Vector3 FirePoint;
     private float speed;
-    private Vector3 velocity;
     private float timer;
     [SerializeField] ParticleSystem hitFX;
 
@@ -31,13 +30,13 @@ public class BulletModel : ObjectModel
 
     }
 
-    public void Shoot(Vector3 start, Vector3 end, float speed)
+    public void Shoot(Vector3 start, Vector3 dir, float speed)
     {
+        transform.position = start;
         FirePoint = start;
-        Direction = end;
+        Direction = dir;
         this.speed = speed;
 
-        velocity = (Direction - FirePoint);
         hitFX.transform.SetParent(transform);
         hitFX.transform.position = transform.position;
         
@@ -47,7 +46,7 @@ public class BulletModel : ObjectModel
     public void movementUpdate()
     {
         // bullet movement
-        transform.position += velocity * speed * Time.deltaTime;
+        transform.position += Direction * speed * Time.deltaTime;
     }
 
     public void OnHitTarget()

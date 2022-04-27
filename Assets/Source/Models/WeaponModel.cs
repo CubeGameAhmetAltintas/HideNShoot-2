@@ -14,6 +14,8 @@ public class WeaponModel : ObjectModel
     [SerializeField] Slider sliderValue;
     [SerializeField] Volume postProcessing;
     [SerializeField] float zoomValue;
+    [SerializeField] float fireSpeed;
+    [SerializeField] Transform bossEnemy;
     float targetValue;
 
     public void OnAimStart()
@@ -26,8 +28,7 @@ public class WeaponModel : ObjectModel
     private void shoot()
     {
         BulletModel bullet = bulletPool.GetDeactiveItem() as BulletModel;
-        bullet.transform.position = transform.position;
-        bullet.Shoot(transform.position, new Vector3(0, 0, transform.position.z + 5f), 5f);
+        bullet.Shoot(camera.transform.position + new Vector3(0,0,1), camera.transform.forward, fireSpeed);
     }
 
     public void WeaponUpdate()
