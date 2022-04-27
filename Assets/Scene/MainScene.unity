@@ -13924,6 +13924,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 736605243}
+  - {fileID: 2092821029}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17155,7 +17156,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684089350}
-  m_LocalRotation: {x: 0.1878431, y: -0.19993411, z: 0.03908689, w: 0.96084005}
+  m_LocalRotation: {x: 0.1878431, y: -0.1999341, z: 0.03908689, w: 0.96084005}
   m_LocalPosition: {x: 6, y: 7.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21843,6 +21844,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066641252}
   m_CullTransparentMesh: 1
+--- !u!1 &2092821028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092821029}
+  - component: {fileID: 2092821034}
+  - component: {fileID: 2092821033}
+  m_Layer: 0
+  m_Name: HeartBeatVibration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2092821029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092821028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1324406935}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2092821033
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092821028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cdad694a8c885f4697daf6bc2639ad5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2092821034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092821028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a354796de7b498e4f8a919db21f8e750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2096062925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8931657774295182879, guid: 1f3a3da946677e54bb2bf5e0b14b3b1b, type: 3}
@@ -22252,7 +22316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124040333}
-  m_LocalRotation: {x: 0.1878431, y: -0.19993411, z: 0.03908689, w: 0.96084005}
+  m_LocalRotation: {x: 0.1878431, y: -0.1999341, z: 0.03908689, w: 0.96084005}
   m_LocalPosition: {x: 6, y: 7.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

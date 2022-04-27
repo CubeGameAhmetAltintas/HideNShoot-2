@@ -46,16 +46,15 @@ public class BulletModel : ObjectModel
 
     public void movementUpdate()
     {
-        // bullet movement
         transform.position += Direction * speed * Time.deltaTime;
     }
 
     public void OnHitTarget()
     {
-        // FX
         SetDeactive();
-        hitFX.transform.SetParent(null); //TODO ??
+        hitFX.transform.SetParent(null);
         hitFX.Play();
+        VibrateController.Controller.SetHaptic(VibrationTypes.Medium);
     }
 
 }
