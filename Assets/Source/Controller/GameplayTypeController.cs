@@ -17,12 +17,10 @@ public class GameplayTypeController : ControllerBaseModel
 
     private void onRunning()
     {
-        print("Running");
     }
 
     private void onSniper()
     {
-        print("snipeeer");
     }
 
     public void ChangeGameplay(GameplayTypes type)

@@ -10,7 +10,7 @@ public class GameController : ControllerBaseModel
     public Transform FxGarbage;
     public IntEventModel onUpdatePlayerCoint;
     public static bool IsPlayerWin;
-    public static float EnemyDetectSensitve = 0.35f;
+    public static float EnemyDetectSensitve = 0.45f;
 
     public override void Initialize()
     {

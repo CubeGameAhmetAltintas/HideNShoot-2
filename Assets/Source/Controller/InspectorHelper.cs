@@ -49,6 +49,9 @@ public class InspectorHelper : MonoBehaviour
         Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
         for (int i = 0; i < renderers.Length; i++)
         {
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(renderers[i], "ChangeMaterial");
+#endif
             renderers[i].material = material;
         }
     }

@@ -14,11 +14,13 @@ public class PlayerController : ControllerBaseModel
     public int Health = 100;
     public int MaxHealth;
     private RoadModel currentRoad, lastRoad;
-    [SerializeField] SkinnedMeshRenderer characterColor; // ??
+    [SerializeField] Material characterColor;
     [SerializeField] PlayerColorBar colorBar;
+    [SerializeField] Transform aimBar;
     public Color CurrentColor;
     [SerializeField] HealthBar healthBar;
     [SerializeField] WeaponModel weaponModel;
+    [SerializeField] Cinemachine.CinemachineVirtualCamera gameplayCamera;
     PathModel activePath
     {
         get
@@ -76,7 +78,7 @@ public class PlayerController : ControllerBaseModel
     {
         base.ControllerUpdate();
 
-        OnGameplayTypeChange(GameplayTypeController.CurrentType);
+        OnGameplayTypeUpdate(GameplayTypeController.CurrentType);
 
         if (currentRoad != null)
             currentRoad.RoadUpdate();
@@ -101,7 +103,8 @@ public class PlayerController : ControllerBaseModel
         CurrentColor = color;
         if (currentRoad != null)
             currentRoad.OnPlayerColorChange(CurrentColor);
-        characterColor.material.color = CurrentColor;
+
+        characterColor.color = CurrentColor;
     }
 
     public void OnBulletHit(BulletModel bullet)
@@ -138,7 +141,7 @@ public class PlayerController : ControllerBaseModel
         GameStateHandler.StateHandler.ChangeState(GameStates.End);
     }
 
-    public void OnGameplayTypeChange(GameplayTypes type)
+    public void OnGameplayTypeUpdate(GameplayTypes type)
     {
         switch (type)
         {
@@ -164,6 +167,10 @@ public class PlayerController : ControllerBaseModel
 
     private void onRunningStateComplete()
     {
+        colorBar.SetActive(false);
+        aimBar.SetActive(true);
+        weaponModel.OnAimStart();
+        gameplayCamera.SetActive(false);
         GameplayTypeController.GameplayType.ChangeGameplay(GameplayTypes.Sniper);
         character.StopMoving();
     }

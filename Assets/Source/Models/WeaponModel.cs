@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class WeaponModel : ObjectModel
 {
@@ -10,29 +12,37 @@ public class WeaponModel : ObjectModel
     [SerializeField] CinemachineVirtualCamera camera;
     [SerializeField] PoolModel bulletPool;
     [SerializeField] Slider sliderValue;
-    private float zoomValue;
+    [SerializeField] Volume postProcessing;
+    [SerializeField] float zoomValue;
+    float targetValue;
+
+    public void OnAimStart()
+    {
+        camera.SetActive(true);
+        targetValue = Random.Range(0.3f, 0.7f);
+        sliderValue.maxValue = 1 + targetValue;
+    }
 
     private void shoot()
     {
         BulletModel bullet = bulletPool.GetDeactiveItem() as BulletModel;
         bullet.transform.position = transform.position;
-        bullet.Shoot(transform.position, new Vector3(0,0,transform.position.z + 5f), 5f);
-    }
-
-    private void aimUpdate()
-    {
-        
+        bullet.Shoot(transform.position, new Vector3(0, 0, transform.position.z + 5f), 5f);
     }
 
     public void WeaponUpdate()
     {
-        camera.SetActive(true);
         if (Input.GetMouseButtonUp(0))
             shoot();
+
+
+        camera.m_Lens.FieldOfView = Helpers.Maths.GetValueWithPercent(55, 2, zoomValue);
+        camera.GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset = Helpers.Vectors.GetValueWithPercent(new Vector3(-0.21f, 2.1f, 6), new Vector3(0, 1.77f, 6), zoomValue);
+        ((Vignette)postProcessing.profile.components[1]).intensity.value = Helpers.Maths.GetValueWithPercent(0, 1, zoomValue);
     }
 
     public void OnZoomValueChange()
     {
-        zoomValue = sliderValue.value;
+        zoomValue = sliderValue.value > 1 ? 1 + (1 - sliderValue.value) : sliderValue.value;
     }
 }

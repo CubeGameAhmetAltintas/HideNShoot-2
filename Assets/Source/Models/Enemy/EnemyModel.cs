@@ -18,12 +18,16 @@ public class EnemyModel : ObjectModel
     Vector3 initialPoit;
     public bool isWalking;
 
-    public void ShootPlayer(PlayerController player)
+    public void SetPlayer(PlayerController player)
     {
         this.player = player;
+    }
+
+    public void ShootPlayer()
+    {
         if (player.Health <= 0)
         {
-            ChangeState(EnemyStates.Idle);
+            StateUpdate(EnemyStates.Idle);
             return;
         }
         BulletModel bullet = (bulletPool.GetDeactiveItem() as BulletModel);
@@ -74,7 +78,7 @@ public class EnemyModel : ObjectModel
         else
         {
             animator.SetTrigger("Fire");
-            ShootPlayer(player);
+            ShootPlayer();
             shootFx.Play();
             timer = 0;
         }
@@ -82,10 +86,10 @@ public class EnemyModel : ObjectModel
 
     public void EnemyUpdate()
     {
-        ChangeState(state);
+        StateUpdate(state);
     }
 
-    public void ChangeState(EnemyStates enemyState)
+    public void StateUpdate(EnemyStates enemyState)
     {
         state = enemyState;
         switch (state)

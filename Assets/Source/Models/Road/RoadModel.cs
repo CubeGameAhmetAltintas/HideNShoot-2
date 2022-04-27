@@ -28,7 +28,7 @@ public class RoadModel : ObjectModel
     {
         enemy.transform.position = enemyData.Position;
         enemy.transform.rotation = enemyData.Rotation;
-        enemy.ChangeState(EnemyStates.Idle);
+        enemy.StateUpdate(EnemyStates.Idle);
         enemy.EnemyIdlePoint();
         enemy.SetActive();
     }
@@ -46,20 +46,24 @@ public class RoadModel : ObjectModel
     public void OnPlayerEnter(PlayerController playerController)
     {
         player = playerController;
-        foreach (var enemy in spawnedEnemies)
-            enemy.ShootPlayer(player);
+        foreach (var item in spawnedEnemies)
+        {
+            item.SetPlayer(player);
+        }
+        OnPlayerColorChange(player.CurrentColor);
     }
 
     public void OnPlayerExit()
     {
         foreach (var enemy in spawnedEnemies)
-            enemy.ChangeState(EnemyStates.Idle);
+            enemy.StateUpdate(EnemyStates.Idle);
 
     }
 
     public void RoadUpdate()
     {
         if (spawnedEnemies == null) return;
+
         foreach (var enemy in spawnedEnemies)
             enemy.EnemyUpdate();
     }
@@ -69,9 +73,9 @@ public class RoadModel : ObjectModel
         foreach (var enemy in spawnedEnemies)
         {
             if (Helpers.Colors.IsColorInRange(GameController.EnemyDetectSensitve, currentColor, TargetColor))
-                enemy.ChangeState(EnemyStates.Idle);
+                enemy.StateUpdate(EnemyStates.Idle);
             else
-                enemy.ChangeState(EnemyStates.Shoot);
+                enemy.StateUpdate(EnemyStates.Shoot);
         }
     }
 

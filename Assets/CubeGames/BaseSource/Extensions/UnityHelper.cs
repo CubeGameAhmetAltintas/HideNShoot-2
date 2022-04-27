@@ -27,6 +27,11 @@
             return new Vector2(myPositionOnScreen.x / scaleFactor, myPositionOnScreen.y / scaleFactor);
         }
 
+        public static Vector3 GetValueWithPercent(Vector3 aValue, Vector3 bValue, float percent)
+        {
+            return new Vector3(Maths.GetValueWithPercent(aValue.x, bValue.x, percent), Maths.GetValueWithPercent(aValue.y, bValue.y, percent), Maths.GetValueWithPercent(aValue.z, bValue.z, percent));
+        }
+
         public static Vector2 ToVector2(float angle)
         {
 
@@ -399,7 +404,7 @@
 
     public static class Maths
     {
-        public static float GetValueWithPercent(float aValue,float bValue, float percent)
+        public static float GetValueWithPercent(float aValue, float bValue, float percent)
         {
             float diff = bValue - aValue;
             return aValue + (diff * percent);
@@ -885,7 +890,7 @@
     {
         public static Color GetColorWithPercent(Color a, Color b, float percent)
         {
-            return new Color(Maths.GetValueWithPercent(a.r,b.r, percent), Maths.GetValueWithPercent(a.g, b.g, percent), Maths.GetValueWithPercent(a.b, b.b, percent));
+            return new Color(Maths.GetValueWithPercent(a.r, b.r, percent), Maths.GetValueWithPercent(a.g, b.g, percent), Maths.GetValueWithPercent(a.b, b.b, percent));
         }
 
         public static bool IsEqual(Color a, Color b)
