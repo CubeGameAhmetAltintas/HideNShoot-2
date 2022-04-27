@@ -15,6 +15,7 @@ public class WeaponModel : ObjectModel
     [SerializeField] Volume postProcessing;
     [SerializeField] float zoomValue;
     [SerializeField] float fireSpeed;
+    [SerializeField] int shootCount;
     float targetValue;
 
     public void OnAimStart()
@@ -26,15 +27,25 @@ public class WeaponModel : ObjectModel
 
     private void shoot()
     {
-        BulletModel bullet = bulletPool.GetDeactiveItem() as BulletModel;
-        bullet.Shoot(camera.transform.position + new Vector3(0,0,1), camera.transform.forward, fireSpeed);
+        if (shootCount > 0)
+        {
+            BulletModel bullet = bulletPool.GetDeactiveItem() as BulletModel;
+            bullet.Shoot(camera.transform.position + new Vector3(0, 0, 1), camera.transform.forward, fireSpeed);
+            shootCount--;
+            Invoke(nameof(onShoot), 2);
+        }
+    }
+
+    private void onShoot()
+    {
+        GameController.IsPlayerWin = true;
+        GameStateHandler.StateHandler.ChangeState(GameStates.End);
     }
 
     public void WeaponUpdate()
     {
         if (Input.GetMouseButtonUp(0))
             shoot();
-
 
         camera.m_Lens.FieldOfView = Helpers.Maths.GetValueWithPercent(55, 2, zoomValue);
         camera.GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset = Helpers.Vectors.GetValueWithPercent(new Vector3(-0.21f, 2.1f, 6), new Vector3(0, 1.79f, 6), zoomValue);

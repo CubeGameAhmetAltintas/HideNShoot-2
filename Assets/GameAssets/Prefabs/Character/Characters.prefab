@@ -81,6 +81,8 @@ MonoBehaviour:
   sliderValue: {fileID: 0}
   postProcessing: {fileID: 0}
   zoomValue: 0
+  fireSpeed: 100
+  shootCount: 1
 --- !u!1 &1060348518
 GameObject:
   m_ObjectHideFlags: 0

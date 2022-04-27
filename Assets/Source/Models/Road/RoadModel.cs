@@ -15,7 +15,7 @@ public class RoadModel : ObjectModel
 
     public void Initialize(RoadDataModel data, List<EnemyModel> enemies)
     {
-        TargetColor = data.TargetColor;
+        TargetColor = GameController.GetAreaColor(data.ColorId);
         transform.position = data.Position;
         transform.rotation = data.Rotation;
 
@@ -39,7 +39,7 @@ public class RoadModel : ObjectModel
         environment.transform.rotation = enironmentData.Rotation;
         Component[] meshRenderers = environment.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer item in meshRenderers)
-            item.material.color = data.TargetColor;
+            item.material.color = GameController.GetAreaColor(data.ColorId);
         environment.SetActive();
     }
 

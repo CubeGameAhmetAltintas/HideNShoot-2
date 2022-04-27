@@ -18,8 +18,7 @@ public class EnemyBossModel : ObjectModel
 
         bullet.OnHitTarget();
 
-        GameController.IsPlayerWin = true;
-        GameStateHandler.StateHandler.ChangeState(GameStates.End);
+      
     }
 
     private void OnTriggerEnter(Collider other)

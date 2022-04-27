@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class RoadDataModel
 {
-    public Color TargetColor;
+    public int ColorId;
     public Vector3 Position;
     public Quaternion Rotation;
     public EnemyDataModel[] EnemyDatas;

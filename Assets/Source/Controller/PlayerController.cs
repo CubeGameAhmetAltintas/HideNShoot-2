@@ -43,7 +43,7 @@ public class PlayerController : ControllerBaseModel
             {
                 for (int j = 0; j < colors.Count; j++)
                 {
-                    if (Helpers.Colors.IsEqual(colors[j], level.RoadDatas[i].TargetColor))
+                    if (Helpers.Colors.IsEqual(colors[j],GameController.GetAreaColor(level.RoadDatas[i].ColorId)))
                     {
                         isExist = true;
                     }
@@ -52,11 +52,10 @@ public class PlayerController : ControllerBaseModel
 
             if (isExist == false)
             {
-                colors.Add(level.RoadDatas[i].TargetColor);
+                colors.Add(GameController.GetAreaColor(level.RoadDatas[i].ColorId));
             }
         }
-        colorBar.Initialize(colors);
-
+        colorBar.Initialize(colors.ShuffleList());
     }
 
     public void OnUpgrade(int upgradeId)

@@ -11,6 +11,7 @@ public class GameController : ControllerBaseModel
     public IntEventModel onUpdatePlayerCoint;
     public static bool IsPlayerWin;
     public static float EnemyDetectSensitve = 0.45f;
+    [SerializeField] Color[] areaColors;
 
     public override void Initialize()
     {
@@ -41,6 +42,10 @@ public class GameController : ControllerBaseModel
         onUpdatePlayerCoint?.Invoke(value);
     }
 
+    public static Color GetAreaColor(int colorId)
+    {
+        return Controller.areaColors[colorId];
+    }
 }
 
 public static class GameValues
