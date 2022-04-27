@@ -33,6 +33,7 @@ public class BulletModel : ObjectModel
     public void Shoot(Vector3 start, Vector3 dir, float speed)
     {
         transform.position = start;
+        transform.forward = dir;
         FirePoint = start;
         Direction = dir;
         this.speed = speed;

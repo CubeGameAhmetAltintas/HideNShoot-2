@@ -15,7 +15,6 @@ public class WeaponModel : ObjectModel
     [SerializeField] Volume postProcessing;
     [SerializeField] float zoomValue;
     [SerializeField] float fireSpeed;
-    [SerializeField] Transform bossEnemy;
     float targetValue;
 
     public void OnAimStart()
@@ -38,7 +37,7 @@ public class WeaponModel : ObjectModel
 
 
         camera.m_Lens.FieldOfView = Helpers.Maths.GetValueWithPercent(55, 2, zoomValue);
-        camera.GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset = Helpers.Vectors.GetValueWithPercent(new Vector3(-0.21f, 2.1f, 6), new Vector3(0, 1.77f, 6), zoomValue);
+        camera.GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset = Helpers.Vectors.GetValueWithPercent(new Vector3(-0.21f, 2.1f, 6), new Vector3(0, 1.79f, 6), zoomValue);
         ((Vignette)postProcessing.profile.components[1]).intensity.value = Helpers.Maths.GetValueWithPercent(0, 1, zoomValue);
     }
 

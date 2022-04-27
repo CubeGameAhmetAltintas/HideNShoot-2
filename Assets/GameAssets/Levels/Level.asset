@@ -16,7 +16,7 @@ MonoBehaviour:
     Id: 0
     Points:
     - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 200}
+    - {x: 0, y: 0, z: 100}
     E_IsSelected: 0
     E_EditWithBezier: 0
     E_StartPos: {x: 0, y: 0, z: 0}
@@ -118,28 +118,3 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3.308, y: 0, z: 95.16}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - TargetColor: {r: 0.8, g: 0.6, b: 1, a: 1}
-    Position: {x: 0, y: 0, z: 100}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
-    EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
-    Position: {x: 0, y: 0, z: 120}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
-    EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
-    Position: {x: 0, y: 0, z: 140}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
-    EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
-    Position: {x: 0, y: 0, z: 160}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
-    EnvironmentDatas: []
-  - TargetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
-    Position: {x: 0, y: 0, z: 180}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    EnemyDatas: []
-    EnvironmentDatas: []

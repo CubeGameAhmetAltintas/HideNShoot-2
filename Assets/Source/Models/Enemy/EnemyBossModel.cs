@@ -16,7 +16,10 @@ public class EnemyBossModel : ObjectModel
             rb.AddExplosionForce(100, bullet.transform.position, 10);
         }
 
-        bullet.SetActive(false);
+        bullet.OnHitTarget();
+
+        GameController.IsPlayerWin = true;
+        GameStateHandler.StateHandler.ChangeState(GameStates.End);
     }
 
     private void OnTriggerEnter(Collider other)

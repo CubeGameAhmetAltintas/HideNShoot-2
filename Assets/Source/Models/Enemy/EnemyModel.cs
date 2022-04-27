@@ -31,7 +31,7 @@ public class EnemyModel : ObjectModel
             return;
         }
         BulletModel bullet = (bulletPool.GetDeactiveItem() as BulletModel);
-        bullet.Shoot(firePoint.position, firePoint.forward, fireSpeed);
+        bullet.Shoot(firePoint.position, transform.forward, fireSpeed);
     }
     public void EnemyIdlePoint()
     {
