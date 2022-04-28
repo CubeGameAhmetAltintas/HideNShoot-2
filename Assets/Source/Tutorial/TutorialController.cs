@@ -1,66 +1,67 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace Game.Tutorial
+public class TutorialController : ControllerBaseModel
 {
-    public class TutorialController : ControllerBaseModel
+    public static TutorialController Controller;
+    public bool IsCompleted;
+    public int ActiveLesseonIndex;
+    [SerializeField] Transform tutorialView;
+    [SerializeField] PlayerController playerController;
+    [SerializeField] Text txtTutorial;
+
+    public override void Initialize()
     {
-        public static TutorialController Controller;
-        public bool IsCompleted;
-        public int MaxTutorialCount;
-        ScreenManager screenManager;
-        TutorialScreen tutorialScreen;
-        int tutorialIndex;
+        base.Initialize();
 
-        public override void Initialize()
+        if (Controller == null)
         {
-            base.Initialize();
             Controller = this;
-            DontDestroyOnLoad(this.gameObject);
-            tutorialIndex = PlayerPrefs.GetInt("MetaTutorial");
-            IsCompleted = tutorialIndex == MaxTutorialCount;
         }
-
-        public void OnLessonComplete(LessonModel lesson)
+        else
         {
-            tutorialIndex++;
-            IsCompleted = tutorialIndex == MaxTutorialCount;
-            if (IsCompleted)
-            {
-                AnalyticController.Controller.Adjust_SimpleEvent("a8yyi8");
-            }
-
-            PlayerPrefs.SetInt("MetaTutorial", tutorialIndex);
-            PlayerPrefs.Save();
+            Destroy(Controller);
+            Controller = this;
         }
 
-        public void OnGameTutorialComplete(int gameplayId)
+        IsCompleted = PlayerPrefs.GetInt("TutorialCompleted", 0) == 2;
+
+        if (IsCompleted == false)
         {
-
+            PrepareLesson("Match Road Color!");
         }
+    }
 
-        public void OnSceneChange(int sceneIndex)
+    public void CompleteTutorial()
+    {
+        IsCompleted = true;
+        PlayerPrefs.SetInt("TutorialCompleted", 2);
+    }
+
+    public void PrepareLesson(string strTutorial)
+    {
+        if (IsCompleted == false)
         {
-            if (IsCompleted == false)
-            {
-                screenManager = FindObjectOfType<ScreenManager>();
-                tutorialScreen = screenManager.GetScreen<TutorialScreen>();
-                tutorialScreen.Initialize();
-
-                if (sceneIndex == 1)
-                {
-                    CheckLesson(0);
-                    CheckLesson(2);
-                }
-            }
+            txtTutorial.text = strTutorial;
+            tutorialView.SetActive(true);
         }
+    }
 
-        public void CheckLesson(int lessonId)
+    public void OnLessonComplete()
+    {
+        if (ActiveLesseonIndex == 0)
         {
-            if (lessonId == tutorialIndex)
-            {
-                if (IsCompleted == false)
-                    tutorialScreen.CheckLesson(lessonId);
-            }
+            playerController.OnTutorialLessonComplete();
+            tutorialView.SetActive(false);
         }
+        else if (ActiveLesseonIndex == 1)
+        {
+            tutorialView.SetActive(false);
+            CompleteTutorial();
+        }
+
+        ActiveLesseonIndex++;
     }
 }

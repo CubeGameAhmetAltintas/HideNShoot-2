@@ -13,7 +13,7 @@ public class PlayerController : ControllerBaseModel
     int pointIndex;
     public int Health = 100;
     public int MaxHealth;
-    private RoadModel currentRoad, lastRoad;
+    [SerializeField] private RoadModel currentRoad, lastRoad;
     [SerializeField] Material characterColor;
     [SerializeField] PlayerColorBar colorBar;
     [SerializeField] Transform aimBar;
@@ -43,7 +43,7 @@ public class PlayerController : ControllerBaseModel
             {
                 for (int j = 0; j < colors.Count; j++)
                 {
-                    if (Helpers.Colors.IsEqual(colors[j],GameController.GetAreaColor(level.RoadDatas[i].ColorId)))
+                    if (Helpers.Colors.IsEqual(colors[j], GameController.GetAreaColor(level.RoadDatas[i].ColorId)))
                     {
                         isExist = true;
                     }
@@ -69,6 +69,14 @@ public class PlayerController : ControllerBaseModel
     }
 
     public void OnStartGame()
+    {
+        if (TutorialController.Controller.IsCompleted == true)
+        {
+            character.StartMove();
+        }
+    }
+
+    public void OnTutorialLessonComplete()
     {
         character.StartMove();
     }
@@ -98,6 +106,17 @@ public class PlayerController : ControllerBaseModel
     public void OnColorChange(Color color)
     {
         if (color == null || Health == 0) return;
+
+        if (TutorialController.Controller.ActiveLesseonIndex == 0)
+        {
+            if (currentRoad != null)
+            {
+                if (Helpers.Colors.IsColorInRange(GameController.EnemyDetectSensitve, color, currentRoad.TargetColor))
+                {
+                    TutorialController.Controller.OnLessonComplete();
+                }
+            }
+        }
 
         CurrentColor = color;
         if (currentRoad != null)
@@ -145,8 +164,15 @@ public class PlayerController : ControllerBaseModel
         switch (type)
         {
             case GameplayTypes.Running:
-                if (Health > 0)
-                    movementUpdate();
+                if (TutorialController.Controller.IsCompleted == false)
+                {
+                    if (TutorialController.Controller.ActiveLesseonIndex == 0)
+                    {
+                        return;
+                    }
+                }
+                    if (Health > 0)
+                        movementUpdate();
                 break;
             case GameplayTypes.Sniper:
                 sniperUpdate();
@@ -166,6 +192,11 @@ public class PlayerController : ControllerBaseModel
 
     private void onRunningStateComplete()
     {
+        if (TutorialController.Controller.IsCompleted == false)
+        {
+            TutorialController.Controller.PrepareLesson("Slide to Zoom");
+        }
+
         colorBar.SetActive(false);
         aimBar.SetActive(true);
         weaponModel.OnAimStart();

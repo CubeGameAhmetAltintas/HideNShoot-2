@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class WinScreen : ScreenElement
 {
     [SerializeField] Text txtLevel;
+    [SerializeField] UpgradeController upgradeController;
+    [SerializeField] PlayerController playerController;
     int earning;
 
     public override void Initialize()
@@ -17,6 +19,9 @@ public class WinScreen : ScreenElement
 
     public override void Show()
     {
+        float healthPercent = (float)playerController.Health / (float)playerController.MaxHealth;
+
+        earning = (int)((upgradeController.EarningUpgrade.CurrentEarning * healthPercent) * 1.25f) + (GameController.IsGeneralShooted == true ? 20 : 0);
         base.Show();
     }
 

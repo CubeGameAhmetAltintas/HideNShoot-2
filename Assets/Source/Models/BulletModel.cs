@@ -12,7 +12,7 @@ public class BulletModel : ObjectModel
     private float timer;
     [SerializeField] ParticleSystem hitFX;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (IsActiveInHierarchy)
         {

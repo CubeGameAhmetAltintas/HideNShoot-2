@@ -69,6 +69,12 @@ public class EnemyModel : ObjectModel
 
     private void aimUpdate()
     {
+        if (TutorialController.Controller.ActiveLesseonIndex == 0)
+            return;
+
+        if (GameplayTypeController.CurrentType == GameplayTypes.Sniper)
+            return;
+
         transform.LookAt(player.transform);
         if (timer <= fireRate)
         {

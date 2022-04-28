@@ -17,7 +17,7 @@ public class EnemyBossModel : ObjectModel
         }
 
         bullet.OnHitTarget();
-
+        GameController.IsGeneralShooted = true;
       
     }
 

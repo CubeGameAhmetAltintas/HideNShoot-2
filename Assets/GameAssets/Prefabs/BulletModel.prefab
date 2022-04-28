@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsActiveInHierarchy: 0
   Speed: 8
-  Damage: 10
+  Damage: 7
   Direction: {x: 0, y: 0, z: 0}
   FirePoint: {x: 0, y: 0, z: 0}
   hitFX: {fileID: 4945018740968732574}
