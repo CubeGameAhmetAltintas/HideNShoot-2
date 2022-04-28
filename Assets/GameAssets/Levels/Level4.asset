@@ -44,7 +44,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -3, y: 0, z: 7}
       Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
-  - ColorId: 3
+  - ColorId: 1
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:
@@ -81,7 +81,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -4, y: 0, z: 53}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
-  - ColorId: 6
+  - ColorId: 7
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     EnemyDatas:

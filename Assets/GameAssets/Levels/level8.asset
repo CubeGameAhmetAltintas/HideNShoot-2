@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c92156f787cdec40854f7ddb1913c1c, type: 3}
-  m_Name: level1
+  m_Name: level8
   m_EditorClassIdentifier: 
   Path:
     Id: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     E_ControlPos: {x: 0, y: 0, z: 0}
     E_ControlPos1: {x: 0, y: 0, z: 0}
   RoadDatas:
-  - ColorId: 3
+  - ColorId: 1
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:
@@ -47,7 +47,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3, y: 0, z: 16}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - ColorId: 3
+  - ColorId: 0
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:
@@ -70,7 +70,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: -3, y: 0, z: 35}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - ColorId: 5
+  - ColorId: 7
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:
@@ -87,7 +87,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3.3, y: 0, z: 55}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - ColorId: 5
+  - ColorId: 3
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:
@@ -110,7 +110,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3, y: 0, z: 77}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - ColorId: 0
+  - ColorId: 2
     Position: {x: 0, y: 0, z: 80}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:
@@ -127,7 +127,7 @@ MonoBehaviour:
     - Id: 0
       Position: {x: 3, y: 0, z: 96}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-  - ColorId: 0
+  - ColorId: 6
     Position: {x: 0, y: 0, z: 100}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
     EnemyDatas:

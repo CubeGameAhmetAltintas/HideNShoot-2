@@ -1871,6 +1871,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 366215fda14ba0c4581bc83e0b6a7735, type: 2}
   - {fileID: 11400000, guid: ae26c81f21e061b4aaf075b833a8e3ba, type: 2}
   - {fileID: 11400000, guid: 80c3050e99fc80544a57f755b8692495, type: 2}
+  - {fileID: 11400000, guid: e77ab664e8db9204798b792543663306, type: 2}
+  - {fileID: 11400000, guid: 944c6d269d6e93c49b6dad4bbfce7c4b, type: 2}
+  - {fileID: 11400000, guid: 29c3baf1253732f45a8c7cbb0f4582c2, type: 2}
+  - {fileID: 11400000, guid: 6379def65b4ffa0418b0fed2796761bb, type: 2}
+  - {fileID: 11400000, guid: c89992a26801e8a4c8d8716801afcb36, type: 2}
+  - {fileID: 11400000, guid: 81022f4ed2636c04ebd8a9547fea2e98, type: 2}
+  - {fileID: 11400000, guid: a94fb31e662794a4e9ab71a587d67c8a, type: 2}
   ActivePath:
     Id: 0
     Points: []
@@ -9749,7 +9756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: -0.21, y: 2.1, z: 6}
+  m_TrackedObjectOffset: {x: -0.1237616, y: 1.972696, z: 6}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -19728,7 +19735,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1324406935}
   m_Follow: {fileID: 1324406935}
   m_Lens:
-    FieldOfView: 55
+    FieldOfView: 33.23508
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 100
@@ -22584,7 +22591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684089350}
-  m_LocalRotation: {x: 0.18784308, y: -0.19993408, z: 0.03908688, w: 0.96084005}
+  m_LocalRotation: {x: 0.1878431, y: -0.19993411, z: 0.039086886, w: 0.96084005}
   m_LocalPosition: {x: 6, y: 7.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -29172,7 +29179,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124040333}
-  m_LocalRotation: {x: 0.18784308, y: -0.19993408, z: 0.03908688, w: 0.96084005}
+  m_LocalRotation: {x: 0.1878431, y: -0.19993411, z: 0.039086886, w: 0.96084005}
   m_LocalPosition: {x: 6, y: 7.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
