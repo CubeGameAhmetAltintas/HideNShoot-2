@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c92156f787cdec40854f7ddb1913c1c, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  Path:
+    Id: 0
+    Points:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 120}
+    E_IsSelected: 0
+    E_EditWithBezier: 0
+    E_StartPos: {x: 0, y: 0, z: 0}
+    E_EndPos: {x: 0, y: 0, z: 0}
+    E_ControlPos: {x: 0, y: 0, z: 0}
+    E_ControlPos1: {x: 0, y: 0, z: 0}
+  RoadDatas:
+  - ColorId: 1
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: -4, y: 0, z: 15}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: 4, y: 0, z: 10}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -4, y: 0, z: 10}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 5}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 7}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - ColorId: 3
+    Position: {x: 0, y: 0, z: 20}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: 3, y: 0, z: 25}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 4, y: 0, z: 30}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 1
+      Position: {x: -3, y: 0, z: 24}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 1
+      Position: {x: 3.5, y: 0, z: 32}
+      Rotation: {x: 0, y: 0.9966374, z: 0, w: -0.08193849}
+  - ColorId: 7
+    Position: {x: 0, y: 0, z: 40}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: 3, y: 0, z: 50}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 54}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 56}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 1
+      Position: {x: -3, y: 0, z: 50}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4, y: 0, z: 53}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+  - ColorId: 6
+    Position: {x: 0, y: 0, z: 60}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 0
+      Position: {x: -4, y: 0, z: 64}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 4, y: 0, z: 74}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 1
+      Position: {x: 2.5, y: 0, z: 68}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+    - Id: 1
+      Position: {x: -4, y: 0, z: 72}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 75}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 4
+    Position: {x: 0, y: 0, z: 80}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: 3, y: 0, z: 84}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 95}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -3, y: 0, z: 85}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 1
+      Position: {x: -3, y: 0, z: 90}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 93}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+  - ColorId: 0
+    Position: {x: 0, y: 0, z: 100}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 115}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 110}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 1
+      Position: {x: -3, y: 0, z: 112}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 104}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}

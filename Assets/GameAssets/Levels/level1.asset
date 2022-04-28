@@ -16,7 +16,7 @@ MonoBehaviour:
     Id: 0
     Points:
     - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 200}
+    - {x: 0, y: 0, z: 120}
     E_IsSelected: 0
     E_EditWithBezier: 0
     E_StartPos: {x: 0, y: 0, z: 0}
@@ -24,43 +24,129 @@ MonoBehaviour:
     E_ControlPos: {x: 0, y: 0, z: 0}
     E_ControlPos1: {x: 0, y: 0, z: 0}
   RoadDatas:
-  - TargetColor: {r: 0.0993034, g: 0.3490566, b: 0, a: 0}
+  - ColorId: 3
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 1, g: 0.9724759, b: 0.3254717, a: 0}
+    EnemyDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 10}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: -3, y: 0, z: 15}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 4, y: 0, z: 14}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 4}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4, y: 0, z: 8}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 16}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 1
     Position: {x: 0, y: 0, z: 20}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 1, g: 1, b: 1, a: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: -3, y: 0, z: 25}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -4, y: 0, z: 31}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: 3, y: 0, z: 32}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 23}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -4, y: 0, z: 30}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 35}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 5
     Position: {x: 0, y: 0, z: 40}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 1, g: 1, b: 1, a: 0}
+    EnemyDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 44}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 52}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -3, y: 0, z: 45}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3.3, y: 0, z: 55}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 4
     Position: {x: 0, y: 0, z: 60}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 1, g: 0.495283, b: 0.495283, a: 0}
+    EnemyDatas:
+    - Id: 1
+      Position: {x: -3.5, y: 0, z: 68}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 1
+      Position: {x: -3, y: 0, z: 72}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 74}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -3, y: 0, z: 63}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 68}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 77}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 2
     Position: {x: 0, y: 0, z: 80}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 0, g: 0, b: 0, a: 0}
+    EnemyDatas:
+    - Id: 0
+      Position: {x: -3, y: 0, z: 96}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 85}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: -4, y: 0, z: 90}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 96}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - ColorId: 6
     Position: {x: 0, y: 0, z: 100}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 0, g: 0, b: 0, a: 0}
-    Position: {x: 0, y: 0, z: 120}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 0, g: 0, b: 0, a: 0}
-    Position: {x: 0, y: 0, z: 140}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 0, g: 0, b: 0, a: 0}
-    Position: {x: 0, y: 0, z: 160}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
-  - TargetColor: {r: 0, g: 0, b: 0, a: 0}
-    Position: {x: 0, y: 0, z: 180}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
-    EnemyDatas: []
+    EnemyDatas:
+    - Id: 1
+      Position: {x: -3, y: 0, z: 110}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: 3, y: 0, z: 110}
+      Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 114}
+      Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    EnvironmentDatas:
+    - Id: 0
+      Position: {x: 3, y: 0, z: 110}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 112}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+    - Id: 0
+      Position: {x: -3, y: 0, z: 106}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
