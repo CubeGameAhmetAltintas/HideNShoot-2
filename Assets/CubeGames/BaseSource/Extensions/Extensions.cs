@@ -487,6 +487,13 @@ public static class Extensions
 
     #region Collections
 
+    public static List<T> ReverseList<T>(this List<T> list)
+    {
+        list.Reverse();
+
+        return list;
+    }
+
     public static T AddItem<T>(this List<T> list, T item)
     {
         if (list == null)

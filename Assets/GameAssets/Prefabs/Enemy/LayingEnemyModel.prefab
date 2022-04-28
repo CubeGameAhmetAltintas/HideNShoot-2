@@ -222,7 +222,7 @@ MonoBehaviour:
   Id: 1
   Damage: 0
   bulletPool: {fileID: 0}
-  fireRate: 1.2
+  fireRate: 0.75
   fireSpeed: 20
   animator: {fileID: 713732887551147523}
   firePoint: {fileID: 7400484088066207964}

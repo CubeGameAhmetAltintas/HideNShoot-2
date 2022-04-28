@@ -16,12 +16,10 @@ public class WeaponModel : ObjectModel
     [SerializeField] float zoomValue;
     [SerializeField] float fireSpeed;
     [SerializeField] int shootCount;
-    [SerializeField] Transform heartbeatVibration;
     float targetValue;
 
     public void OnAimStart()
     {
-        heartbeatVibration.SetActive(true);
         camera.SetActive(true);
         targetValue = Random.Range(0.3f, 0.7f);
         sliderValue.maxValue = 1 + targetValue;
@@ -31,8 +29,6 @@ public class WeaponModel : ObjectModel
     {
         if (shootCount > 0)
         {
-            heartbeatVibration.SetActive(false);
-
             BulletModel bullet = bulletPool.GetDeactiveItem() as BulletModel;
             bullet.Shoot(camera.transform.position + new Vector3(0, 0, 1), camera.transform.forward, fireSpeed);
             shootCount--;
@@ -60,5 +56,6 @@ public class WeaponModel : ObjectModel
     public void OnZoomValueChange()
     {
         zoomValue = sliderValue.value > 1 ? 1 + (1 - sliderValue.value) : sliderValue.value;
+        VibrateController.Controller.SetHaptic(VibrationTypes.Light);
     }
 }

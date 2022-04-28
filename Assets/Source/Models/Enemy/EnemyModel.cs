@@ -5,7 +5,7 @@ public class EnemyModel : ObjectModel
 {
     public int Id;
     public int Damage;
-    private EnemyStates state;
+    [SerializeField] private EnemyStates state;
     [SerializeField] PoolModel bulletPool; //TODO ???
     private PlayerController player;
     float timer = 0;
@@ -69,9 +69,6 @@ public class EnemyModel : ObjectModel
 
     private void aimUpdate()
     {
-        if (TutorialController.Controller.ActiveLesseonIndex == 0)
-            return;
-
         if (GameplayTypeController.CurrentType == GameplayTypes.Sniper)
             return;
 

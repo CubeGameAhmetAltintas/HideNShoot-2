@@ -4,6 +4,7 @@ using UnityEngine;
 public class VibrateController : ControllerBaseModel
 {
     public static VibrateController Controller;
+    float passedTime;
 
     public override void Initialize()
     {
@@ -13,6 +14,13 @@ public class VibrateController : ControllerBaseModel
 
     public void SetHaptic(VibrationTypes type)
     {
+        if (Time.time < passedTime + 0.15f)
+        {
+            return;
+        }
+
+        passedTime = Time.time;
+
         switch (type)
         {
             case VibrationTypes.Light:

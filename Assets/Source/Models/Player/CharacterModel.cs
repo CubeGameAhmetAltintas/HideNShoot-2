@@ -4,8 +4,8 @@ using UnityEngine;
 public class CharacterModel : ObjectModel
 {
     [SerializeField] PlayerController playerController;
-    [SerializeField] ParticleSystem upgradeFx;
     [SerializeField] Animator animator;
+
 
     public void StartMove()
     {

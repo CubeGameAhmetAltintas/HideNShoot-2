@@ -9,7 +9,7 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] float rotationSpeed;
     public CharacterModel character;
     [SerializeField] UpgradeController upgradeController;
-    [SerializeField] ParticleSystem upgradeFx;
+    [SerializeField] ParticleSystem upgradeFx, healthUpgradeFx;
     int pointIndex;
     public int Health = 100;
     public int MaxHealth;
@@ -28,22 +28,23 @@ public class PlayerController : ControllerBaseModel
             return LevelController.Controller.ActivePath;
         }
     }
+    Level activeLevel;
 
     public void Initialize(Level level)
     {
         base.Initialize();
         MaxHealth = upgradeController.HealthUpgrade.CurrentHealth;
         Health = MaxHealth;
-
-        List<Color> colors = new List<Color>();
+        activeLevel = level;
+        List<Color> roadColors = new List<Color>();
         for (int i = 0; i < level.RoadDatas.Length; i++)
         {
             bool isExist = false;
-            if (colors.Count != 0)
+            if (roadColors.Count != 0)
             {
-                for (int j = 0; j < colors.Count; j++)
+                for (int j = 0; j < roadColors.Count; j++)
                 {
-                    if (Helpers.Colors.IsEqual(colors[j], GameController.GetAreaColor(level.RoadDatas[i].ColorId)))
+                    if (Helpers.Colors.IsEqual(roadColors[j], GameController.GetAreaColor(level.RoadDatas[i].ColorId)))
                     {
                         isExist = true;
                     }
@@ -52,10 +53,17 @@ public class PlayerController : ControllerBaseModel
 
             if (isExist == false)
             {
-                colors.Add(GameController.GetAreaColor(level.RoadDatas[i].ColorId));
+                roadColors.Add(GameController.GetAreaColor(level.RoadDatas[i].ColorId));
             }
         }
-        colorBar.Initialize(colors.ShuffleList());
+        if (PlayerDataModel.Data.Level != 1)
+        {
+            colorBar.Initialize(roadColors.ShuffleList());
+        }
+        else
+        {
+            colorBar.Initialize(roadColors.ReverseList());
+        }
     }
 
     public void OnUpgrade(int upgradeId)
@@ -64,8 +72,12 @@ public class PlayerController : ControllerBaseModel
         {
             MaxHealth = upgradeController.HealthUpgrade.CurrentHealth;
             Health = MaxHealth;
+            healthUpgradeFx.Play();
         }
-        upgradeFx.Play();
+        else
+        {
+            upgradeFx.Play();
+        }
     }
 
     public void OnStartGame()
@@ -107,11 +119,11 @@ public class PlayerController : ControllerBaseModel
     {
         if (color == null || Health == 0) return;
 
-        if (TutorialController.Controller.ActiveLesseonIndex == 0)
+        if (TutorialController.Controller.IsCompleted == false)
         {
-            if (currentRoad != null)
+            if (TutorialController.Controller.ActiveLesseonIndex == 0)
             {
-                if (Helpers.Colors.IsColorInRange(GameController.EnemyDetectSensitve, color, currentRoad.TargetColor))
+                if (Helpers.Colors.IsColorInRange(GameController.EnemyDetectSensitve, color, GameController.GetAreaColor(activeLevel.RoadDatas[0].ColorId)))
                 {
                     TutorialController.Controller.OnLessonComplete();
                 }
@@ -171,8 +183,8 @@ public class PlayerController : ControllerBaseModel
                         return;
                     }
                 }
-                    if (Health > 0)
-                        movementUpdate();
+                if (Health > 0)
+                    movementUpdate();
                 break;
             case GameplayTypes.Sniper:
                 sniperUpdate();

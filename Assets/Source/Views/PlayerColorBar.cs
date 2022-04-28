@@ -9,7 +9,7 @@ public class PlayerColorBar : MonoBehaviour
     [SerializeField] Image imgColorBar;
     [SerializeField] PlayerController player;
     [SerializeField] Slider colorSlider;
-    [SerializeField] List<Color> targetColors;
+    public List<Color> targetColors;
     Texture2D currentTexture;
 
     public void Initialize(List<Color> colors)

@@ -8,6 +8,8 @@ public class WinScreen : ScreenElement
     [SerializeField] Text txtLevel;
     [SerializeField] UpgradeController upgradeController;
     [SerializeField] PlayerController playerController;
+    [SerializeField] EarningAnimation earningAnimation;
+    [SerializeField] Transform missText;
     int earning;
 
     public override void Initialize()
@@ -19,9 +21,11 @@ public class WinScreen : ScreenElement
 
     public override void Show()
     {
+        missText.SetActive(!GameController.IsGeneralShooted);
         float healthPercent = (float)playerController.Health / (float)playerController.MaxHealth;
-
         earning = (int)((upgradeController.EarningUpgrade.CurrentEarning * healthPercent) * 1.25f) + (GameController.IsGeneralShooted == true ? 20 : 0);
+        earningAnimation.OnWinShow(earning);
+
         base.Show();
     }
 
@@ -32,10 +36,8 @@ public class WinScreen : ScreenElement
     public void NextLevel()
     {
         GameController.Controller.UpdatePlayerCoin(earning);
+        earningAnimation.Play(earning);
         PlayerDataModel.Data.Money += earning;
-        PlayerDataModel.Data.Save();
-        LevelController.Controller.NextLevel();
-        GameController.Controller.Reload();
     }
 
 }
